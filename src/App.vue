@@ -36,7 +36,6 @@
         <RouterLink to="/cart">Cart</RouterLink>
       </li>
     </ul>
-    </ul>
   </nav>
   <!--<HelloWorld msg="Hello World!"
   <CitiesList />
