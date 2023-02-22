@@ -1,8 +1,8 @@
 <script>
   /* import CitiesList from './components/CitiesList.vue'
-  import CounterButton from './components/CounterButton.vue'
-  import HelloWorld from './components/HelloWorld.vue'
-*/
+    import CounterButton from './components/CounterButton.vue'
+    import HelloWorld from './components/HelloWorld.vue'
+  */
   import HeaderComponent from './components/HeaderComponent.vue'
   import FooterComponent from './components/FooterComponent.vue'
 
@@ -39,7 +39,7 @@
   </nav>
   <!--<HelloWorld msg="Hello World!"
   <CitiesList />
-  <CounterButton />--->
+  <CounterButton />-->
   <HeaderComponent />
 
   <main>
