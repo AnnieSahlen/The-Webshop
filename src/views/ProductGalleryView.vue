@@ -1,13 +1,24 @@
 <script>
-  import ProductCarusel from '../components/ProductCarusel.vue'
-
   export default {
-    components: {
-      ProductCarusel
+    created() {
+      fetch('https://dummyjson.com/products/category/womens-dresses')
+        .then((response) => response.json())
+        .then((result) => {
+          this.products = result
+        })
+    },
+    data() {
+      return { products: null }
     }
   }
 </script>
+<style></style>
 <template>
-  <h1>ProductGallery</h1>
-  <ProductCarusel />
+  <div calss="container-fluid">
+    <div class="row">
+      <div class="col-6" :key="product.id" v-for="product in products">
+        {{ products }}
+      </div>
+    </div>
+  </div>
 </template>

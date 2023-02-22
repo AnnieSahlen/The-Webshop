@@ -1,22 +1,24 @@
-<script></script>
-<style>
-  .cell {
-    background-color: blue;
+<script>
+  export default {
+    created() {
+      fetch('https://dummyjson.com/products/category/womens-dresses')
+        .then((response) => response.json())
+        .then((result) => {
+          this.products = result
+        })
+    },
+    data() {
+      return { products: null }
+    }
   }
-</style>
+</script>
+<style></style>
 <template>
-  <div calss="container">
+  <div calss="container-fluid">
     <div class="row">
-      <div class="cell">1</div>
-      <div class="cell">2</div>
-      <div class="cell">3</div>
-      <div class="cell">4</div>
-      <div class="cell">5</div>
-      <div class="cell">6</div>
-      <div class="cell">7</div>
-      <div class="cell">8</div>
-      <div class="cell">9</div>
-      <div class="cell">10</div>
+      <div class="col-6" :key="product.id" v-for="product in products">
+        {{ products }}
+      </div>
     </div>
   </div>
 </template>
