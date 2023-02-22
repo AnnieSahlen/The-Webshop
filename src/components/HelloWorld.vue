@@ -1,13 +1,4 @@
-<script>
-  export default {
-    props: {
-      msg: {
-        required: true,
-        type: String
-      }
-    }
-  }
-</script>
+<script></script>
 
 <style>
   p {
@@ -17,5 +8,4 @@
 
 <template>
   <img alt="" src="/assets/fox.jpeg" />
-  <p>{{ msg }}</p>
 </template>
