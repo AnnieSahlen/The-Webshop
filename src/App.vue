@@ -41,9 +41,9 @@
   <CitiesList />
   <CounterButton />--->
   <HeaderComponent />
-  <FooterComponent />
 
   <main>
     <RouterView />
   </main>
+  <FooterComponent />
 </template>
