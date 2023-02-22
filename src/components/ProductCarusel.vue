@@ -1,4 +1,8 @@
-<script></script>
+<script setup lang="ts">
+  import { ref } from 'vue'
+
+  const slide = ref(0)
+</script>
 <style>
   .cell {
     background-color: blue;
@@ -19,4 +23,10 @@
       <div class="cell">10</div>
     </div>
   </div>
+
+  <b-carousel v-model="slide" controls>
+    <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=1" />
+    <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=2" />
+    <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=3" />
+  </b-carousel>
 </template>
