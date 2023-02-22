@@ -39,7 +39,7 @@
     background-color: #a08c5b;
     text-align: center;
     align-content: end;
-    width: 50%;
+    /* width: 50%; */
     height: 200px;
     gap: 1px;
   }
