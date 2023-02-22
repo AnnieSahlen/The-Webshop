@@ -16,6 +16,5 @@
 </style>
 
 <template>
-  <img alt="" src="/assets/fox.jpeg" />
   <p>{{ msg }}</p>
 </template>
