@@ -1,11 +1,12 @@
 <script>
   export default {
     created() {
-      // fetch('https://avancera.app/cities/')
-      fetch('https://dummyjson.com/products/category/womens-dresses')
+      // https://dummyjson.com/products/category/womens-dresses
+      fetch("https://fakestoreapi.com/products/category/men's%20clothing")
         .then((response) => response.json())
         .then((result) => {
-          this.products = result.products
+          this.products = result
+          console.log(this.products)
         })
     },
     data() {
@@ -15,19 +16,34 @@
     }
   }
 </script>
-<style></style>
+<style>
+  .card-img-top {
+    width: 100%;
+    height: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+  }
+  .card-title {
+    font-size: small;
+  }
+</style>
 <template>
-  <ProductCarousel />
   <div class="container-fluid">
     <div class="row">
-      <div class="col-6" :key="product.id" v-for="product in products">
+      <div
+        class="col-6"
+        align="center"
+        :key="product.id"
+        v-for="product in products"
+      >
         <b-card
           :title="product.title"
-          :img-src="product.images[0]"
+          :img-src="product.image"
           img-alt="Image"
           img-top
           tag="article"
-          style="max-height;: 5rem"
+          style="max-width: 10rem"
           class="mb-2"
         >
           <b-card-text> Price: {{ product.price }} </b-card-text>

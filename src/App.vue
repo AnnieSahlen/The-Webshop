@@ -39,11 +39,8 @@
       </li>
     </ul>
   </nav>
-  <!--<HelloWorld msg="Hello World!"
-  <CitiesList />
-  <CounterButton />-->
+
   <HeaderComponent />
-  <FooterComponent />
 
   <main>
     <RouterView />
