@@ -1,5 +1,7 @@
 <script>
-  export default {}
+  import HamburgerMenu from './HamburgerMenu.vue'
+
+  export default { components: { HamburgerMenu } }
 </script>
 
 <style scoped>
@@ -16,6 +18,7 @@
 </style>
 
 <template>
+  <HamburgerMenu />
   <div class="container-fluid">
     <div class="row gy-2">
       <div class="col">

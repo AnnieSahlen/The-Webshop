@@ -5,7 +5,7 @@
   */
   import HeaderComponent from './components/HeaderComponent.vue'
   import FooterComponent from './components/FooterComponent.vue'
-  import HamburgerMenu from './components/HamburgerMenu.vue'
+  // import HamburgerMenu from './components/HamburgerMenu.vue'
 
   export default {
     components: {
@@ -13,8 +13,8 @@
       //CounterButton,
       // HelloWorld
       HeaderComponent,
-      FooterComponent,
-      HamburgerMenu
+      FooterComponent
+      // HamburgerMenu
     }
   }
 </script>
