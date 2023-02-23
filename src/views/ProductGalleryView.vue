@@ -15,16 +15,11 @@
     }
   }
 </script>
-<style>
-  img {
-    width: 50%;
-    height: 50%;
-  }
-</style>
+<style></style>
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-3" :key="product.id" v-for="product in products">
+      <div class="col-6" :key="product.id" v-for="product in products">
         <b-card
           :title="product.title"
           :img-src="product.images[0]"
