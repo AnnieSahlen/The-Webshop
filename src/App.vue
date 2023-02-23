@@ -41,9 +41,7 @@
       </li>
     </ul>
   </nav>
-  <!--<HelloWorld msg="Hello World!"
-  <CitiesList />
-  <CounterButton />-->
+
   <HeaderComponent />
 
   <main>
