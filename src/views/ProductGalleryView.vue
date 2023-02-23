@@ -17,7 +17,6 @@
 </script>
 <style></style>
 <template>
-  <ProductCarousel />
   <div class="container-fluid">
     <div class="row">
       <div class="col-6" :key="product.id" v-for="product in products">

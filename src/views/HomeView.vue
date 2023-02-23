@@ -27,55 +27,18 @@
       grid-template-columns: 1fr 1fr 1fr;
     }
   }*/
-  .call-to-action1 {
-    display: flex;
-    text-align: center;
-    font-size: 60px;
-    letter-spacing: 2px;
-    position: absolute;
-    padding-top: 350px;
-    padding-left: 600px;
-    width: 30%;
-  }
-
-  .call-to-action1 a {
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    padding: 10px 30px;
-  }
-
-  /*.call-to-action2 {
-    display: flex;
-    text-align: center;
-    font-size: 60px;
-    letter-spacing: 2px;
-    /*position: absolute;
-    padding-top: 250px;
-    padding-left: 600px;
-    width: 30%;
-  }
-
-  .call-to-action2 a {
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    padding: 10px 30px;
-  }*/
 </style>
 
 <template>
-  <h1>Webshop</h1>
-
   <div class="home-pictures">
-    <div class="call-to-action1">
-      <!--<a href="">Women</a>-->
-    </div>
-    <img alt="" src="/assets/woman-new.jpg" />
-    <div class="call-to-action2">
-      <!--<a href="">Men</a>-->
-    </div>
-    <img alt="" src="/assets/men-new.jpg" />
+    <li>
+      <RouterLink to="/productgallery"
+        ><img alt="" src="/assets/woman-new-logga.jpg"
+      /></RouterLink>
+    </li>
+    <RouterLink to="/productgallery"
+      ><img alt="" src="/assets/men-new-logga.jpg" />
+    </RouterLink>
     <img alt="" src="/assets/watch-new.jpg" />
   </div>
 </template>
