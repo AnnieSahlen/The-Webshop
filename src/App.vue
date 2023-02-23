@@ -1,10 +1,11 @@
 <script>
   /* import CitiesList from './components/CitiesList.vue'
-  import CounterButton from './components/CounterButton.vue'
-  import HelloWorld from './components/HelloWorld.vue'
-*/
+    import CounterButton from './components/CounterButton.vue'
+    import HelloWorld from './components/HelloWorld.vue'
+  */
   import HeaderComponent from './components/HeaderComponent.vue'
   import FooterComponent from './components/FooterComponent.vue'
+  import HamburgerMenu from './components/HamburgerMenu.vue'
 
   export default {
     components: {
@@ -12,7 +13,8 @@
       //CounterButton,
       // HelloWorld
       HeaderComponent,
-      FooterComponent
+      FooterComponent,
+      HamburgerMenu
     }
   }
 </script>
@@ -42,6 +44,7 @@
   <CounterButton />--->
   <HeaderComponent />
   <FooterComponent />
+  <HamburgerMenu />
 
   <main>
     <RouterView />
