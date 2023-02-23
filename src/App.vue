@@ -6,8 +6,8 @@
   import HeaderComponent from './components/HeaderComponent.vue'
   import FooterComponent from './components/FooterComponent.vue'
   // import HamburgerMenu from './components/HamburgerMenu.vue'
-  import { useProductStore } from './stores/ProductStore.js'
-  useProductStore()
+  // import { useProductStore } from './stores/ProductStore.js'
+  // useProductStore()
 
   export default {
     components: {
