@@ -41,12 +41,12 @@
   </nav>
   <!--<HelloWorld msg="Hello World!"
   <CitiesList />
-  <CounterButton />--->
+  <CounterButton />-->
   <HeaderComponent />
   <FooterComponent />
-  <HamburgerMenu />
 
   <main>
     <RouterView />
   </main>
+  <FooterComponent />
 </template>
