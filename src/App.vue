@@ -43,7 +43,6 @@
   <CitiesList />
   <CounterButton />-->
   <HeaderComponent />
-  <FooterComponent />
 
   <main>
     <RouterView />

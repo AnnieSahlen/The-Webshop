@@ -65,8 +65,6 @@
 </style>
 
 <template>
-  <h1>Webshop</h1>
-
   <div class="home-pictures">
     <div class="call-to-action1">
       <!--<a href="">Women</a>-->
