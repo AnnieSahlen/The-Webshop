@@ -22,7 +22,7 @@
 </script>
 
 <template>
-  <nav>
+  <!-- <nav>
     <ul>
       <li>
         <RouterLink to="/">Home</RouterLink>
@@ -40,7 +40,7 @@
         <RouterLink to="/cart">Cart</RouterLink>
       </li>
     </ul>
-  </nav>
+  </nav> -->
 
   <HeaderComponent />
 
