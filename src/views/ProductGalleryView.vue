@@ -1,8 +1,7 @@
 <script>
   export default {
     created() {
-      // https://dummyjson.com/products/category/womens-dresses
-      fetch("https://fakestoreapi.com/products/category/men's%20clothing")
+      fetch(this.$store.state.fetchUrl)
         .then((response) => response.json())
         .then((result) => {
           this.products = result
@@ -36,7 +35,7 @@
   <div class="container-fluid">
     <div class="row h-100">
       <div
-        class="col-3"
+        class="col-6"
         align="center"
         :key="product.id"
         v-for="product in products"

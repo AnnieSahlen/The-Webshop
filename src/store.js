@@ -1,12 +1,17 @@
 import { createStore } from 'vuex'
 
 const mutations = {
-    increment(state) {
-      state.counter += 1
+    womanClick(state) {
+      state.fetchUrl =
+        "https://fakestoreapi.com/products/category/women's%20clothing"
+    },
+    menClick(state) {
+      state.fetchUrl =
+        "https://fakestoreapi.com/products/category/men's%20clothing"
     }
   },
   state = {
-    counter: 0
+    fetchUrl: ''
   }
 
 export default createStore({ mutations, state, strict: true })

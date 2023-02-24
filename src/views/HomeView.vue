@@ -33,11 +33,18 @@
   <div class="home-pictures">
     <li>
       <RouterLink to="/productgallery"
-        ><img alt="" src="/assets/woman-new-logga.jpg"
+        ><img
+          @click="this.$store.commit('womanClick')"
+          alt=""
+          src="/assets/woman-new-logga.jpg"
       /></RouterLink>
     </li>
     <RouterLink to="/productgallery"
-      ><img alt="" src="/assets/men-new-logga.jpg" />
+      ><img
+        @click="this.$store.commit('menClick')"
+        alt=""
+        src="/assets/men-new-logga.jpg"
+      />
     </RouterLink>
     <img alt="" src="/assets/watch-new.jpg" />
   </div>
