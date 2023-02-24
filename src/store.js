@@ -11,7 +11,7 @@ const mutations = {
     }
   },
   state = {
-    fetchUrl: ''
+    fetchUrl: "https://fakestoreapi.com/products/category/men's%20clothing"
   }
 
 export default createStore({ mutations, state, strict: true })
