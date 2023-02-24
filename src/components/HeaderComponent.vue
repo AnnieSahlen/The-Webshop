@@ -26,7 +26,7 @@
     text-decoration: none;
   }
   /*Styling för hamburgermenyn*/
-  .hamburger-wrap {
+  /* .hamburger-wrap {
     width: 100px;
     height: 100%;
     margin-left: 50px;
@@ -36,7 +36,7 @@
   }
   .hamburger-wrap {
     float: left;
-  }
+  } */
   .hamburger {
     width: 45px;
     height: 45px;
@@ -92,19 +92,6 @@
         </div>
       </div>
 
-      <!--När man trycker på hamburgerikonen-->
-      <div class="row dropdown" :class="{ 'dropdown-after': menuOpen }">
-        <ul class="navlist">
-          <RouterLink to="/"><li class="navlistitem">Home</li></RouterLink>
-          <RouterLink to="/about"
-            ><li class="navlistitem">About</li></RouterLink
-          >
-          <RouterLink to="/contact"
-            ><li class="navlistitem">Contact</li></RouterLink
-          >
-        </ul>
-      </div>
-
       <!--Header: ikonerna till höger-->
       <div class="col-6 nav-icons">
         <i class="bi bi-search" style="font-size: 1.3rem; color: #5f4338" />
@@ -116,6 +103,19 @@
         </RouterLink>
         <i class="bi bi-heart" style="font-size: 1.3rem; color: #5f4338" />
         <i class="bi bi-door-open" style="font-size: 1.3rem; color: #5f4338" />
+      </div>
+
+      <!--När man trycker på hamburgerikonen-->
+      <div class="row dropdown" :class="{ 'dropdown-after': menuOpen }">
+        <ul class="navlist">
+          <RouterLink to="/"><li class="navlistitem">Home</li></RouterLink>
+          <RouterLink to="/about"
+            ><li class="navlistitem">About</li></RouterLink
+          >
+          <RouterLink to="/contact"
+            ><li class="navlistitem">Contact</li></RouterLink
+          >
+        </ul>
       </div>
 
       <!--Loggan-->
