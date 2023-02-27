@@ -5,6 +5,7 @@
         .then((response) => response.json())
         .then((result) => {
           this.products = result
+
           console.log(this.products)
         })
     },
@@ -29,6 +30,11 @@
         :key="product.id"
         v-for="product in products"
       >
+        <ModalCard
+          :title="product.title"
+          :price="product.price"
+          :product-id="product.id"
+        />
         <b-card
           :title="product.title"
           :img-src="product.image"
@@ -39,13 +45,13 @@
           style="max-width: 10rem"
           class="mb-2"
           data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
+          :data-bs-target="'#exampleModal-' + product.id"
         >
           <b-card-text align="left"> Price: {{ product.price }} </b-card-text>
         </b-card>
       </div>
     </div>
   </div>
+  <!-- <ModalCard title="hej" price="1" /> -->
   <!-- Modal -->
-  <ModalCard />
 </template>

@@ -14,10 +14,29 @@
   }
 </style>
 
+<script>
+  export default {
+    props: {
+      title: {
+        type: String,
+        required: true
+      },
+      price: {
+        type: Number,
+        required: true
+      },
+      productId: {
+        type: Number,
+        required: true
+      }
+    }
+  }
+</script>
+
 <template>
   <div
     class="modal fade"
-    id="exampleModal"
+    :id="'exampleModal-' + productId"
     tabindex="-1"
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"
@@ -87,7 +106,18 @@
               <li><a class="dropdown-item">3</a></li>
             </ul>
           </div>
-          <button type="button" class="btn btn-primary">Add to Cart</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            @click="
+              this.$store.commit('addItemToCart', {
+                title: this.title,
+                price: this.price
+              })
+            "
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>
