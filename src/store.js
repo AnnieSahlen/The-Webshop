@@ -6,7 +6,7 @@ const mutations = {
 
       // console.log('hej')
     },
-
+    // this.$router.go(0)
     womanClick(state) {
       state.fetchUrl =
         "https://fakestoreapi.com/products/category/women's%20clothing"
