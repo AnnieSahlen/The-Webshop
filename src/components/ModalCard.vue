@@ -134,8 +134,6 @@
               </button>
             </div>
           </div>
-<<<<<<< HEAD
-=======
           <div class="form-check">
             <input
               class="form-check-input"
@@ -191,7 +189,6 @@
             Add to Cart
           </button>
           <!-- <RouterLink to="/cart"><li class="navlistitem">Cart</li></RouterLink> -->
->>>>>>> 0047cf89cec63ad951fda25400d6589326530cef
         </div>
       </div>
     </div>
