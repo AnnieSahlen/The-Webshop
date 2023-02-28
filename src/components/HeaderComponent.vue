@@ -86,7 +86,9 @@
           />
         </RouterLink>
         <i class="bi bi-heart" style="font-size: 1.3rem; color: #5f4338" />
-        <i class="bi bi-door-open" style="font-size: 1.3rem; color: #5f4338" />
+        <RouterLink to="/Login"
+          ><i class="bi bi-door-open" style="font-size: 1.3rem; color: #5f4338"
+        /></RouterLink>
       </div>
 
       <!--Loggan-->
