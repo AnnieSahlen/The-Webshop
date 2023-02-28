@@ -1,13 +1,14 @@
 <script>
   export default {
     created() {
-      fetch(this.$store.state.fetchUrl)
-        .then((response) => response.json())
-        .then((result) => {
-          this.products = result
+      this.fetchAgain()
+      // fetch(this.$store.state.fetchUrl)
+      //   .then((response) => response.json())
+      //   .then((result) => {
+      //     this.products = result
 
-          console.log(this.products)
-        })
+      //     console.log(this.products)
+      //   })
     },
     data() {
       return {
@@ -15,8 +16,16 @@
       }
     },
     methods: {
-      // onClick() {
-      // }
+      // womanClick() {
+      //   console.log('hej')
+      // },
+      fetchAgain() {
+        fetch(this.$store.state.fetchUrl)
+          .then((response) => response.json())
+          .then((result) => {
+            this.products = result
+          })
+      }
     }
   }
 </script>

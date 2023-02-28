@@ -17,6 +17,8 @@ const mutations = {
       this.cart.splice(this.cart.indexOf(product), 1)
     },
 
+    // this.$router.go(0)
+
     womanClick(state) {
       state.fetchUrl =
         "https://fakestoreapi.com/products/category/women's%20clothing"

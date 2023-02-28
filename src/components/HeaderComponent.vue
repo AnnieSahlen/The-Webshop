@@ -5,7 +5,8 @@
     // components: { HamburgerMenu },
     data: function () {
       return {
-        menuOpen: false
+        menuOpen: false,
+        miniMenuOpen: false
       }
     }
   }
@@ -37,15 +38,27 @@
   .dropdown {
     height: 0px;
     transition: height 0.2s ease;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     overflow: hidden;
   }
   .dropdown-after {
     height: 40vh;
     width: 100vw;
     transition: height 0.2s, width 0.2s ease;
+    overflow: scroll;
+  }
+  .nested-dropdown {
+    height: 0px;
+    transition: height 0.2s ease;
+    overflow: hidden;
+  }
+  .nested-dropdown-after {
+    height: 12vh;
+    width: 100vw;
+    transition: height 0.2s, width 0.2s ease;
+    overflow: scroll;
   }
   .navlist {
     list-style: none;
@@ -61,6 +74,7 @@
   }
   .navlist :hover {
     color: #a08c5b;
+    cursor: pointer;
   }
 </style>
 
@@ -103,9 +117,36 @@
       >
         <ul class="navlist">
           <RouterLink to="/"><li class="navlistitem">Home</li></RouterLink>
-          <!-- <RouterLink to="/productgallery"
-            ><li class="navlistitem">Product Gallery</li></RouterLink
-          > -->
+
+          <!--Product Gallery-länken-->
+          <li class="navlistitem" @click="miniMenuOpen = !miniMenuOpen">
+            Product Gallery
+            <div
+              class="row nested-dropdown mx-0 px-0"
+              :class="{ 'nested-dropdown-after': miniMenuOpen }"
+            >
+              <ul class="navlist">
+                <RouterLink to="/productgallery"
+                  ><li
+                    @click="this.$store.commit('womanClick')"
+                    class="navlistitem"
+                  >
+                    Women
+                  </li></RouterLink
+                >
+                <RouterLink to="/productgallery"
+                  ><li
+                    @click="this.$store.commit('menClick')"
+                    class="navlistitem"
+                  >
+                    Men
+                  </li></RouterLink
+                >
+              </ul>
+            </div>
+          </li>
+
+          <!--Cart, About och Contact-->
           <RouterLink to="/cart"><li class="navlistitem">Cart</li></RouterLink>
           <RouterLink to="/about"
             ><li class="navlistitem">About</li></RouterLink
@@ -118,3 +159,5 @@
     </div>
   </div>
 </template>
+
+<!--Koden till hamburgermenyn är inspirerad av https://codepen.io/Infamous5b9ae1d83a/pen/GOmzBr-->
