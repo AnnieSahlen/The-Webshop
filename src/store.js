@@ -2,9 +2,19 @@ import { createStore } from 'vuex'
 
 const mutations = {
     addItemToCart(state, product) {
-      this.state.cart.push({ title: product.title, price: product.price })
+      console.log(product)
+      this.state.cart.push({
+        title: product.title,
+        price: product.price,
+        image: product.image
+      })
 
       // console.log('hej')
+    },
+
+    removeItemFromCart(state, product) {
+      console.log('ta bort')
+      this.cart.splice(this.cart.indexOf(product), 1)
     },
 
     womanClick(state) {

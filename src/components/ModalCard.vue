@@ -123,12 +123,14 @@
             @click="
               this.$store.commit('addItemToCart', {
                 title: this.title,
-                price: this.price
+                price: this.price,
+                image: this.image
               })
             "
           >
             Add to Cart
           </button>
+          <!-- <RouterLink to="/cart"><li class="navlistitem">Cart</li></RouterLink> -->
         </div>
       </div>
     </div>
