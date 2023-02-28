@@ -28,6 +28,14 @@
       productId: {
         type: Number,
         required: true
+      },
+      description: {
+        type: String,
+        required: true
+      },
+      image: {
+        type: String,
+        required: true
       }
     }
   }
@@ -44,7 +52,9 @@
     <div class="modal-dialog modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">
+            {{ title }}
+          </h5>
           <button
             type="button"
             class="btn-close"
@@ -54,6 +64,7 @@
         </div>
         <div class="modal-body">
           <ProductCarousel />
+          <div>{{ description }}</div>
         </div>
         <div class="modal-footer">
           <div class="form-check">

@@ -43,6 +43,8 @@
           :title="product.title"
           :price="product.price"
           :product-id="product.id"
+          :description="product.description"
+          :image="product.image"
         />
         <b-card
           :title="product.title"
@@ -61,6 +63,4 @@
       </div>
     </div>
   </div>
-  <!-- <ModalCard title="hej" price="1" /> -->
-  <!-- Modal -->
 </template>
