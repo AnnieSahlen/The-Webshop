@@ -52,6 +52,4 @@
       </div>
     </div>
   </div>
-  <!-- <ModalCard title="hej" price="1" /> -->
-  <!-- Modal -->
 </template>

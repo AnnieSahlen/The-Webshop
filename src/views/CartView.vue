@@ -64,7 +64,10 @@
     <h1>Your Cart</h1>
     <ol>
       <li :key="index" v-for="(product, index) in cart">
-        {{ product }}
+        <div style="background-color: red">
+          {{ product.title }} <br />{{ product.price }}
+        </div>
+
         <button @click="removeItemFromCart(product)">Remove from chart</button>
       </li>
     </ol>
@@ -72,7 +75,7 @@
 
   <!-- If products ------------------- -->
 
-  <div v-if="page === 'products'">
+  <!-- <div v-if="page === 'products'">
     <h1>Products</h1>
     <ol>
       <li
@@ -82,12 +85,13 @@
       >
         <img :src="product.image" style="width: 30px" />
         <div>{{ product.title }}</div>
+        <br /><br />
         <div>{{ product.price }}</div>
 
         <button @click="addItemToCart(product)">Add to chart</button>
       </li>
     </ol>
-  </div>
+  </div> -->
 </template>
 
 <style>
