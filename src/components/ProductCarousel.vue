@@ -1,13 +1,46 @@
-<script setup lang="ts">
-  import { ref } from 'vue'
-  const slide = ref(0)
+<script>
+  export default {
+    data() {
+      return {
+        slide: 0,
+        sliding: null
+      }
+    },
+    methods: {
+      onSlideStart() {
+        this.sliding = true
+      },
+      onSlideEnd() {
+        this.sliding = false
+      }
+    },
+    props: {
+      image: {
+        type: String,
+        required: true
+      }
+    }
+  }
 </script>
 
 <template>
-  <!-- <h1>{{ this.$store.state.fetchUrl }}</h1> -->
-  <b-carousel v-model="slide" controls>
-    <b-carousel-slide img-src="{{ image }} " />
-    <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=2" />
-    <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=3" />
-  </b-carousel>
+  <div>
+    <b-carousel
+      id="carousel-1"
+      v-model="slide"
+      :interval="4000"
+      controls
+      indicators
+      background="#ababab"
+      img-height="200"
+      img-width="100"
+      style="text-shadow: 1px 1px 2px #333"
+      @sliding-start="onSlideStart"
+      @sliding-end="onSlideEnd"
+    >
+      <b-carousel-slide :img-src="image" />
+      <b-carousel-slide img-src="../../assets/dummy-picture.jpg" />
+      <b-carousel-slide img-src="../../assets/dummy-picture.jpg" />
+    </b-carousel>
+  </div>
 </template>

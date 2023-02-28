@@ -63,72 +63,77 @@
           />
         </div>
         <div class="modal-body">
-          <ProductCarousel />
+          <ProductCarousel :image="image" />
           <div>{{ description }}</div>
         </div>
         <div class="modal-footer">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadioDefault"
-              id="flexRadioDefault1"
-            />
-            <label class="form-check-label" for="flexRadioDefault1"> S </label>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-2">€ {{ price }}</div>
+
+              <div class="form-check col-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault1"
+                />
+                <label class="form-check-label" for="flexRadioDefault1">
+                  S
+                </label>
+              </div>
+              <div class="form-check col-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault1"
+                />
+                <label class="form-check-label" for="flexRadioDefault1">
+                  M
+                </label>
+              </div>
+              <div class="form-check col-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault1"
+                />
+                <label class="form-check-label" for="flexRadioDefault1">
+                  L
+                </label>
+              </div>
+              <div class="dropdown col-4">
+                <button
+                  class="btn btn-secondary btn-sm dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Amount
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item">1</a></li>
+                  <li><a class="dropdown-item">2</a></li>
+                  <li><a class="dropdown-item">3</a></li>
+                </ul>
+              </div>
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="
+                  this.$store.commit('addItemToCart', {
+                    title: this.title,
+                    price: this.price
+                  })
+                "
+              >
+                Add to Cart
+              </button>
+            </div>
           </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadioDefault"
-              id="flexRadioDefault1"
-            />
-            <label class="form-check-label" for="flexRadioDefault1"> M </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadioDefault"
-              id="flexRadioDefault1"
-            />
-            <label class="form-check-label" for="flexRadioDefault1"> L </label>
-          </div>
-          <div>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item">1</a></li>
-              <li><a class="dropdown-item">2</a></li>
-              <li><a class="dropdown-item">3</a></li>
-            </ul>
-          </div>
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary btn-sm dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton1"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Amount
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item">1</a></li>
-              <li><a class="dropdown-item">2</a></li>
-              <li><a class="dropdown-item">3</a></li>
-            </ul>
-          </div>
-          <button
-            type="button"
-            class="btn btn-primary"
-            @click="
-              this.$store.commit('addItemToCart', {
-                title: this.title,
-                price: this.price
-              })
-            "
-          >
-            Add to Cart
-          </button>
         </div>
       </div>
     </div>
