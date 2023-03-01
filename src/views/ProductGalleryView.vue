@@ -1,7 +1,14 @@
 <script>
   export default {
     created() {
-      this.fetchAgain()
+      this.$watch(
+        () => this.$store.state.fetchUrl,
+        () => {
+          this.fetchAgain()
+        },
+        { immediate: true }
+      )
+      // this.fetchAgain()
       // fetch(this.$store.state.fetchUrl)
       //   .then((response) => response.json())
       //   .then((result) => {
