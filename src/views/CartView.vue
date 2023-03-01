@@ -1,26 +1,19 @@
 <script>
   export default {
     data() {
-      return {}
+      return { totalamount: 0 }
     },
     computed: {
       cart() {
         return this.$store.state.cart
-      }
-    },
-
-    methods: {
-      removeItemFromCart(product) {
-        this.cart.splice(this.cart.indexOf(product), 1)
       }
     }
   }
 </script>
 
 <template>
-  {{ cart.length }} in cart
-
   <div class="container-fluid">
+    <!-- Rad 1 your products -->
     <div class="row">
       <div class="col-12" style="text-align: center">
         <h1 style="padding-bottom: 50px">Your products</h1>
@@ -35,6 +28,7 @@
             :key="index"
             v-for="(product, index) in cart"
           >
+            <!-- Rad 2 * antal varor -->
             <div class="row" id="row">
               <div class="col-3">
                 <img style="height: 50px" :src="product.image" alt="" />
@@ -45,18 +39,48 @@
               <div class="col-3">
                 <button
                   class="btn btn-secondary btn-sm"
-                  @click="removeItemFromCart(product)"
+                  @click="
+                    this.$store.commit('removeItemFromCart', {
+                      title: this.title,
+                      price: this.price,
+                      image: this.image
+                    })
+                  "
                 >
-                  Remove from chart
+                  Remove from cart
                 </button>
               </div>
             </div>
           </li>
         </ol>
       </div>
+      <!-- Rad 4 total amount -->
+      <div v-if="cart.length > 0" class="row" style="padding-top: 20px">
+        <div class="col-3" />
+        <div class="col-3">
+          <h4>Total amount:</h4>
+        </div>
+        <!-- <div class="col-3" :key="index" v-for="(product, index) in cart">
+          {{ totalamount }}
+        </div> -->
+        <!-- ???????????Hur lägga totalen????? -->
+        <div class="col-3" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12" style="text-align: center">
+        <button
+          v-if="cart.length > 0"
+          type="button"
+          class="btn btn-success"
+          style="margin: 30px"
+        >
+          To payment
+        </button>
+      </div>
     </div>
   </div>
-  <!-- </div> -->
 </template>
 
 <style>

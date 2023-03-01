@@ -8,7 +8,13 @@
         menuOpen: false,
         miniMenuOpen: false
       }
+    },
+    computed: {
+      cart() {
+        return this.$store.state.cart
+      }
     }
+    // Computed tillagd av Sandra för att kunna lägga till antal varor i varukorgen.
   }
 </script>
 
@@ -98,6 +104,8 @@
             class="bi bi-bag-dash"
             style="font-size: 1.3rem; color: #5f4338"
           />
+          <span style="color: red">{{ cart.length }}</span>
+          <!-- Ovanstående span tillagd av Sandra för att lägga till antal voror i cart -->
         </RouterLink>
         <i class="bi bi-heart" style="font-size: 1.3rem; color: #5f4338" />
         <RouterLink to="/Login"
