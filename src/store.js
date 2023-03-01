@@ -13,8 +13,15 @@ const mutations = {
     },
 
     removeItemFromCart(state, product) {
-      console.log('ta bort')
-      this.state.cart.splice(this.state.cart.indexOf(product), 1)
+      console.log(
+        'ta bort: ' +
+          state.cart.indexOf(product) +
+          ' ' +
+          product.title +
+          ' ' +
+          state.cart
+      )
+      state.cart.splice(state.cart.indexOf(product), 1)
     },
 
     // this.$router.go(0)
