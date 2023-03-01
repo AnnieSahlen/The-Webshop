@@ -4,7 +4,23 @@
       <div class="col-md-3" />
       <div class="col-md-6">
         <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            placeholder="Name"
+            required
+            aria-describedby="emailHelp"
+          />
+          <input
+            type="text"
+            class="form-control"
+            id="fullName"
+            placeholder=""
+            required
+            aria-describedby="emailHelp"
+          />
+
           <input
             type="email"
             class="form-control"
@@ -12,13 +28,10 @@
             v-model="email"
             required
             aria-describedby="emailHelp"
+            placeholder="Email"
           />
-          <div id="emailHelp" class="form-text">
-            We'll never share your email with anyone else.
-          </div>
         </div>
         <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
           <input
             type="password"
             class="form-control"
@@ -33,7 +46,7 @@
             >Check me out</label
           >
         </div>
-        <button class="btn btn-secondary">Login</button>
+
         <router-link class="btn btn-secondary" to="/register"
           >Create Account</router-link
         >
@@ -44,26 +57,5 @@
 </template>
 
 <script>
-  export default {
-    name: 'LogIn',
-    data() {
-      return {
-        email: '',
-        password: ''
-      }
-    },
-    methods: {
-      Login: function () {
-        console.log('Email: ' + this.email)
-        console.log('Password: ' + this.password)
-      }
-    }
-  }
+  export default {}
 </script>
-
-<style scoped>
-  .container {
-    padding-top: 5rem;
-    padding-bottom: 10rem;
-  }
-</style>

@@ -6,10 +6,15 @@ import HomeView from './views/HomeView.vue'
 import ProductGalleryView from './views/ProductGalleryView.vue'
 import CartView from './views/CartView.vue'
 import LoginView from './views/LoginView.vue'
+import RegisterView from './views/RegisterView.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
+    {
+      component: RegisterView,
+      path: '/register'
+    },
     {
       component: LoginView,
       path: '/login'

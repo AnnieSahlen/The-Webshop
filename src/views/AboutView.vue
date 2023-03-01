@@ -1,16 +1,39 @@
 <template>
-  <h1>Om</h1>
-  <i class="bi bi-4-circle-fill" />
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
-    fill="currentColor"
-    class="bi bi-4-circle-fill"
-    viewBox="0 0 16 16"
-  >
-    <path
-      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM7.519 5.057c-.886 1.418-1.772 2.838-2.542 4.265v1.12H8.85V12h1.26v-1.559h1.007V9.334H10.11V4.002H8.176c-.218.352-.438.703-.657 1.055ZM6.225 9.281v.053H8.85V5.063h-.065c-.867 1.33-1.787 2.806-2.56 4.218Z"
-    />
-  </svg>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3" />
+      <div class="col-md-6">
+        <div class="mb-3">
+          <div class="card" style="width: 22rem">
+            <div class="card-body">
+              <p class="card-text">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id
+                totam mollitia, sit autem quia earum beatae hic, animi ipsum
+                tempore dicta. Repellendus magnam cupiditate vero? Hic tenetur
+                rerum libero minus. Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Numquam provident dolor quas beatae magnam
+                accusantium enim nostrum corporis hic officia aut vitae nesciunt
+                voluptas, autem non optio. Enim, quaerat praesentium. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+                adipisci dolores vel id cumque. Adipisci aspernatur libero,
+                recusandae veritatis magnam nobis illum placeat! Excepturi unde
+                similique reprehenderit accusantium nihil sint!
+              </p>
+              <div class="col-md-3" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
+<style>
+  .card-text {
+    text-align: center;
+    margin-top: 1.5rem;
+    /*background-color: #e9dbbc;*/
+  }
+  .container {
+    padding-bottom: 8rem;
+  }
+</style>
