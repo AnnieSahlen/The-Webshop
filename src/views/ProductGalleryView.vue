@@ -67,6 +67,7 @@
         >
           <b-card-text align="left"> Price: {{ product.price }} </b-card-text>
         </b-card>
+        <!-- WET: Dubbel kod för att få fler kort -->
         <ModalCard
           :title="product.title"
           :price="product.price"
@@ -88,6 +89,7 @@
         >
           <b-card-text align="left"> Price: {{ product.price }} </b-card-text>
         </b-card>
+        <!-- WET: Dubbel kod för att få fler kort -->
       </div>
     </div>
   </div>
