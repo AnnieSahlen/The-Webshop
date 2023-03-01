@@ -41,9 +41,9 @@
                   class="btn btn-secondary btn-sm"
                   @click="
                     this.$store.commit('removeItemFromCart', {
-                      title: this.title,
-                      price: this.price,
-                      image: this.image
+                      title: product.title,
+                      price: product.price,
+                      image: product.image
                     })
                   "
                 >
