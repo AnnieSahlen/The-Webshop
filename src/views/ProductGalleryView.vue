@@ -34,11 +34,32 @@
   <div class="container-fluid">
     <div class="row h-100">
       <div
-        class="col-6"
+        class="col-6 col-sm-3"
         align="center"
         :key="product.id"
         v-for="product in products"
       >
+        <ModalCard
+          :title="product.title"
+          :price="product.price"
+          :product-id="product.id"
+          :description="product.description"
+          :image="product.image"
+        />
+        <b-card
+          :title="product.title"
+          :img-src="product.image"
+          img-alt="Image"
+          img-top
+          align="left"
+          tag="article"
+          style="max-width: 10rem"
+          class="mb-2"
+          data-bs-toggle="modal"
+          :data-bs-target="'#exampleModal-' + product.id"
+        >
+          <b-card-text align="left"> Price: {{ product.price }} </b-card-text>
+        </b-card>
         <ModalCard
           :title="product.title"
           :price="product.price"
