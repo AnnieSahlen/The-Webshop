@@ -51,7 +51,7 @@
                     )
                   "
                 >
-                  Remove from cart
+                  Remove
                 </button>
               </div>
             </div>
