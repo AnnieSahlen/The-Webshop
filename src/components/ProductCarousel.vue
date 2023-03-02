@@ -22,7 +22,11 @@
     }
   }
 </script>
-
+<style>
+  img {
+    height: 100px;
+  }
+</style>
 <template>
   <div>
     <b-carousel
@@ -32,8 +36,8 @@
       controls
       indicators
       background="#ababab"
-      img-height="200"
-      img-width="100"
+      img-height=""
+      img-width=""
       style="text-shadow: 1px 1px 2px #333"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
