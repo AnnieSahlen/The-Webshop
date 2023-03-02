@@ -12,16 +12,18 @@ const mutations = {
       // console.log('hej')
     },
 
-    removeItemFromCart(state, product) {
+    removeItemFromCart(state, product, index) {
       console.log(
         'ta bort: ' +
-          state.cart.indexOf(product) +
+          // state.cart.indexOf(product) +
+          index +
           ' ' +
           product.title +
           ' ' +
           state.cart
       )
-      state.cart.splice(state.cart.indexOf(product), 1)
+      state.cart.splice(index, 1)
+      // state.cart.splice(state.cart.indexOf(product), 1)
     },
 
     // this.$router.go(0)
