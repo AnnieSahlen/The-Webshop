@@ -35,6 +35,9 @@ const mutations = {
     menClick(state) {
       state.fetchUrl =
         "https://fakestoreapi.com/products/category/men's%20clothing"
+    },
+    jeweleryClick(state) {
+      state.fetchUrl = 'https://fakestoreapi.com/products/category/jewelery'
     }
   },
   state = {
