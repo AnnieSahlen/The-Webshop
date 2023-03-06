@@ -23,6 +23,12 @@
   }
 </script>
 
+<style>
+  carousel-item {
+    width: 50%;
+  }
+</style>
+
 <template>
   <div>
     <b-carousel
@@ -33,7 +39,6 @@
       indicators
       background="#ababab"
       img-height="200"
-      img-width="100"
       style="text-shadow: 1px 1px 2px #333"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"

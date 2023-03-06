@@ -20,9 +20,15 @@
     }
   }
 </script>
-
+<style>
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+</style>
 <template>
-  <!-- <nav>
+  <body>
+    <!-- <nav>
     <ul>
       <li>
         <RouterLink to="/">Home</RouterLink>
@@ -42,10 +48,11 @@
     </ul>
   </nav> -->
 
-  <HeaderComponent />
+    <HeaderComponent />
 
-  <main>
-    <RouterView />
-  </main>
-  <FooterComponent />
+    <main>
+      <RouterView />
+    </main>
+    <FooterComponent />
+  </body>
 </template>

@@ -36,7 +36,14 @@
     }
   }
 </script>
-<style></style>
+<style>
+  .card {
+    min-height: 250px;
+  }
+  .card-deck {
+    object-fit: contain;
+  }
+</style>
 <template>
   <div class="container-fluid">
     <div class="row h-100">
@@ -68,6 +75,13 @@
           <b-card-text align="left"> Price: {{ product.price }} </b-card-text>
         </b-card>
         <!-- WET: Dubbel kod för att få fler kort -->
+      </div>
+      <div
+        class="col-6 col-sm-3"
+        align="center"
+        :key="product.id"
+        v-for="product in products"
+      >
         <ModalCard
           :title="product.title"
           :price="product.price"
