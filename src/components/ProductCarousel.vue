@@ -24,6 +24,9 @@
 </script>
 
 <style>
+  img {
+    height: 100px;
+  }
   carousel-item {
     width: 50%;
   }

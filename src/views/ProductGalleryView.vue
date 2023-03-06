@@ -46,7 +46,7 @@
 </style>
 <template>
   <div class="container-fluid">
-    <div class="row h-100">
+    <div class="row">
       <div
         class="col-6 col-sm-3"
         align="center"

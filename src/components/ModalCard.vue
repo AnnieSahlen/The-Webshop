@@ -130,6 +130,7 @@
               <button
                 type="button"
                 class="btn btn-primary"
+                data-bs-toggle="modal"
                 @click="
                   this.$store.commit('addItemToCart', {
                     title: this.title,
@@ -138,7 +139,6 @@
                   })
                 "
               >
-                <!-- ATT FIXA: När knappen add to cart ska modalkortet stängas -->
                 Add to Cart
               </button>
             </div>
