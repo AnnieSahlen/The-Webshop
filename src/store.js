@@ -2,7 +2,6 @@ import { createStore } from 'vuex'
 
 const mutations = {
     addItemToCart(state, product) {
-      console.log(product)
       this.state.cart.push({
         title: product.title,
         price: product.price,
