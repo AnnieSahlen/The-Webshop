@@ -115,6 +115,20 @@
             </div>
           </div>
         </div>
+        <!-- <div id="container">
+          <div
+            class="card h-100"
+            style="width: 10rem"
+            data-bs-toggle="modal"
+            :data-bs-target="'#exampleModal-' + product.id"
+          >
+            <img :src="product.image" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title }}</h5>
+              <h6>€ {{ product.price }}</h6>
+            </div>
+          </div>
+        </div> -->
 
         <ModalCard
           :title="product.title"

@@ -34,20 +34,20 @@
     <RouterLink to="/productgallery"
       ><img
         @click="this.$store.commit('womanClick')"
-        alt=""
+        alt="womans clothing"
         src="/assets/woman-new-logga.jpg"
     /></RouterLink>
     <RouterLink to="/productgallery"
       ><img
         @click="this.$store.commit('menClick')"
-        alt=""
+        alt="mens clothing"
         src="/assets/men-new-logga.jpg"
       />
     </RouterLink>
     <RouterLink to="/productgallery"
       ><img
         @click="this.$store.commit('jeweleryClick')"
-        alt=""
+        alt="accessories"
         src="/assets/watch-new.jpg"
       />
     </RouterLink>
