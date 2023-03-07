@@ -66,6 +66,9 @@
     text-align: center;
     margin-bottom: 10px;
   }
+  .card:hover {
+    transform: scale(1.1);
+  }
 </style>
 <template>
   <!-- drop down filter -->
