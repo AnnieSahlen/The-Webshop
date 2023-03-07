@@ -3,13 +3,20 @@ import { createStore } from 'vuex'
 const mutations = {
     addItemToCart(state, product) {
       console.log(product)
-      this.state.cart.push({
+      state.cart.push({
         title: product.title,
         price: product.price,
         image: product.image
       })
 
       // console.log('hej')
+    },
+
+    total(state) {
+      state.total = Object.values(this.state.cart).reduce(
+        (accumulator, value) => accumulator + value.price,
+        0
+      )
     },
 
     removeItemFromCart(state, product, index) {
@@ -41,7 +48,8 @@ const mutations = {
     fetchUrl: "https://fakestoreapi.com/products/category/men's%20clothing",
     page: 'products',
     cart: [],
-    products: ''
+    products: '',
+    total: 0
   }
 
 export default createStore({ mutations, state, strict: true })
