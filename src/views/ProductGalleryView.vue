@@ -43,6 +43,9 @@
   .card-deck {
     object-fit: contain;
   }
+  .card:hover {
+    transform: scale(1.1);
+  }
 </style>
 <template>
   <div class="container-fluid">
