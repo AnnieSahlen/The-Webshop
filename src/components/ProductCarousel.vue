@@ -24,16 +24,17 @@
 </script>
 
 <style scoped>
-  img {
-    height: 100px;
-  }
-  carousel-item {
+  /* img {
+    object-fit: contain;
+  } */
+  /* carousel-item {
     width: 50%;
-  }
+  } */
 </style>
 
 <template>
-  <div>
+  <!-- enligt boots är classen d-bock w-100, men ändrade här till-50 verkar funka ok just nu på orginal bilderna men inte på tshirt bilderna-->
+  <div class="b-carousel-ram w-50">
     <b-carousel
       id="carousel-1"
       v-model="slide"
@@ -41,14 +42,13 @@
       controls
       indicators
       background="#ababab"
-      img-height="200"
       style="text-shadow: 1px 1px 2px #333"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd"
     >
       <b-carousel-slide :img-src="image" />
-      <b-carousel-slide img-src="../../assets/dummy-picture.jpg" />
-      <b-carousel-slide img-src="../../assets/dummy-picture.jpg" />
+      <b-carousel-slide :img-src="image" />
+      <!-- <b-carousel-slide img-src="../../assets/dummy-picture.jpg" /> -->
     </b-carousel>
   </div>
 </template>

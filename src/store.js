@@ -2,7 +2,6 @@ import { createStore } from 'vuex'
 
 const mutations = {
     addItemToCart(state, product) {
-      console.log(product)
       state.cart.push({
         title: product.title,
         price: product.price,
@@ -42,6 +41,9 @@ const mutations = {
     menClick(state) {
       state.fetchUrl =
         "https://fakestoreapi.com/products/category/men's%20clothing"
+    },
+    jeweleryClick(state) {
+      state.fetchUrl = 'https://fakestoreapi.com/products/category/jewelery'
     }
   },
   state = {
