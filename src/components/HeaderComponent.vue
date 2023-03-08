@@ -105,6 +105,7 @@
       </div>
 
       <!--Header: ikonerna till höger-->
+
       <div class="col-6 nav-icons">
         <i
           @click="hideMenuOnClick"
@@ -138,7 +139,11 @@
         :class="{ 'dropdown-after': menuOpen }"
       >
         <ul class="navlist">
-          <RouterLink to="/"><li class="navlistitem">Home</li></RouterLink>
+          <RouterLink to="/"
+            ><li class="navlistitem" @click="hideMenuOnClick">
+              Home
+            </li></RouterLink
+          >
 
           <!--Product Gallery-länken-->
           <li class="navlistitem" @click="miniMenuOpen = !miniMenuOpen">
@@ -150,7 +155,7 @@
               <ul class="navlist">
                 <RouterLink to="/productgallery"
                   ><li
-                    @click="this.$store.commit('womanClick')"
+                    @click="this.$store.commit('womanClick'), hideMenuOnClick()"
                     class="navlistitem"
                   >
                     Women
@@ -158,7 +163,7 @@
                 >
                 <RouterLink to="/productgallery"
                   ><li
-                    @click="this.$store.commit('menClick')"
+                    @click="this.$store.commit('menClick'), hideMenuOnClick()"
                     class="navlistitem"
                   >
                     Men
@@ -169,12 +174,20 @@
           </li>
 
           <!--Cart, About och Contact-->
-          <RouterLink to="/cart"><li class="navlistitem">Cart</li></RouterLink>
+          <RouterLink to="/cart"
+            ><li class="navlistitem" @click="hideMenuOnClick">
+              Cart
+            </li></RouterLink
+          >
           <RouterLink to="/about"
-            ><li class="navlistitem">About</li></RouterLink
+            ><li class="navlistitem" @click="hideMenuOnClick">
+              About
+            </li></RouterLink
           >
           <RouterLink to="/contact"
-            ><li class="navlistitem">Contact</li></RouterLink
+            ><li class="navlistitem" @click="hideMenuOnClick">
+              Contact
+            </li></RouterLink
           >
         </ul>
       </div>

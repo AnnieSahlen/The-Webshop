@@ -13,15 +13,13 @@
     margin-top: 20px;
   }
 
-  .col-md-4 {
-    /* border-style: double; */
-    padding-bottom: 20px;
-    justify-content: center;
-  }
-
-  .container-fluid {
-    margin-bottom: 20px;
-    justify-items: center;
+  .col-sm-12 {
+    /* display: flex; */
+    border: double;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    /* justify-content: center; */
   }
 
   #confirmationbutton {
@@ -31,12 +29,16 @@
 </style>
 
 <template>
-  <!-- <div>
-    <p>Test: {{ $store.state.cart }}</p>
-  </div> -->
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4" id="contactinformation">
+      <div class="col-sm-12">
+        <p>Summary of your order:</p>
+        <p :key="index" v-for="(product, index) in $store.state.cart">
+          {{ product.title }} {{ product.price }}
+        </p>
+        <p style="font-weight: bold">Total: {{ $store.state.total }}</p>
+      </div>
+      <div class="col-sm-12" id="contactinformation">
         <h4>Contactinformation</h4>
         <form action="">
           <input id="sur-name" placeholder="Efternamn" type="text" />
@@ -48,7 +50,7 @@
           <input id="postalcode" placeholder="Postal code" type="text" />
         </form>
       </div>
-      <div class="col-md-4">
+      <div class="col-sm-12">
         <h4>Delivery</h4>
         <form>
           <label for="homedelivery">Homedelivery</label>
@@ -62,13 +64,14 @@
           <input type="radio" id="pickup" name="delivery" value="Pick-up" />
         </form>
       </div>
-      <div class="col-md-4">
+      <div class="col-sm-12">
         <h4>Payment</h4>
         <p>You total amount is: {{ $store.state.total }}.</p>
         <p>Please choose desired payment option.</p>
         <form>
           <label for="paypal"><i class="bi bi-paypal" /> Paypal</label>
           <input type="radio" id="paypal" name="payment" value="Paypal" />
+
           <label for="creditcard"
             ><i class="bi bi-credit-card-2-back" /> Creditcard</label
           >

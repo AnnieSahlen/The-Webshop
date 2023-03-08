@@ -24,8 +24,9 @@ const mutations = {
 
     // Till slut returnerar total() funktionen det totala priset som beräknats med hjälp av reduce() metoden.
 
-    removeItemFromCart(state, product, index) {
-      state.cart.splice(index, 1)
+    removeItemFromCart(state, product) {
+      console.log(product.index)
+      state.cart.splice(product.index, 1)
     },
 
     womanClick(state) {

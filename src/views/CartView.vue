@@ -45,15 +45,12 @@
                 <button
                   class="btn btn-secondary btn-sm"
                   @click="
-                    this.$store.commit(
-                      'removeItemFromCart',
-                      {
-                        title: product.title,
-                        price: product.price,
-                        image: product.image
-                      },
-                      index
-                    )
+                    this.$store.commit('removeItemFromCart', {
+                      title: product.title,
+                      price: product.price,
+                      image: product.image,
+                      index: index
+                    })
                   "
                 >
                   Remove
