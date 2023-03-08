@@ -30,10 +30,5 @@
 <style>
   .card-text {
     text-align: center;
-    margin-top: 1.5rem;
-    /*background-color: #e9dbbc;*/
-  }
-  .container {
-    padding-bottom: 8rem;
   }
 </style>

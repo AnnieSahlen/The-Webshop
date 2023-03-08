@@ -1,4 +1,5 @@
-<style>
+<style scoped>
+  /* Verkar inte påverka modalkortet utan endast B-cad? */
   .card-img-top {
     width: 100%;
     height: auto;

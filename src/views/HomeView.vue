@@ -31,21 +31,25 @@
 
 <template>
   <div class="home-pictures">
-    <li>
-      <RouterLink to="/productgallery"
-        ><img
-          @click="this.$store.commit('womanClick')"
-          alt=""
-          src="/assets/woman-new-logga.jpg"
-      /></RouterLink>
-    </li>
+    <RouterLink to="/productgallery"
+      ><img
+        @click="this.$store.commit('womanClick')"
+        alt="womans clothing"
+        src="/assets/woman-new-logga.jpg"
+    /></RouterLink>
     <RouterLink to="/productgallery"
       ><img
         @click="this.$store.commit('menClick')"
-        alt=""
+        alt="mens clothing"
         src="/assets/men-new-logga.jpg"
       />
     </RouterLink>
-    <img alt="" src="/assets/watch-new.jpg" />
+    <RouterLink to="/productgallery"
+      ><img
+        @click="this.$store.commit('jeweleryClick')"
+        alt="accessories"
+        src="/assets/watch-new.jpg"
+      />
+    </RouterLink>
   </div>
 </template>
