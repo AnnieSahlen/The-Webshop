@@ -6,6 +6,9 @@
     computed: {
       cart() {
         return this.$store.state.cart
+      },
+      selectedSize() {
+        return this.$store.state.selectedSize
       }
     }
   }
@@ -40,19 +43,17 @@
                 <button
                   class="btn btn-secondary btn-sm"
                   @click="
-                    this.$store.commit(
-                      'removeItemFromCart',
-                      {
-                        title: product.title,
-                        price: product.price,
-                        image: product.image
-                      },
-                      index
-                    )
+                    this.$store.commit('removeItemFromCart', {
+                      title: product.title,
+                      price: product.price,
+                      image: product.image,
+                      index: index
+                    })
                   "
                 >
                   Remove
                 </button>
+                <div>{{ product.size }}</div>
               </div>
             </div>
           </li>
