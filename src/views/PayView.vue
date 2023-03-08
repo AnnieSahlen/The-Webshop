@@ -2,12 +2,7 @@
   export default {}
 </script>
 
-<style>
-  #form {
-    display: flex;
-    justify-content: center;
-  }
-
+<style scoped>
   label {
     display: flex;
     margin-top: 10px;
@@ -15,23 +10,34 @@
 
   input {
     display: flex;
+    margin-top: 20px;
   }
 
-  #contactinformation {
-    border-style: outset;
+  .col-md-4 {
+    /* border-style: double; */
+    padding-bottom: 20px;
+    justify-content: center;
   }
 
   .container-fluid {
     margin-bottom: 20px;
+    justify-items: center;
+  }
+
+  #confirmationbutton {
+    display: flex;
+    justify-content: center;
   }
 </style>
 
 <template>
-  <h1>Test: {{ this.$store.state.products }}</h1>
+  <!-- <div>
+    <p>Test: {{ $store.state.cart }}</p>
+  </div> -->
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4">
-        <h2>Contactinformation</h2>
+      <div class="col-md-4" id="contactinformation">
+        <h4>Contactinformation</h4>
         <form action="">
           <input id="sur-name" placeholder="Efternamn" type="text" />
           <input id="first-name" name="first-name" placeholder="Förnamn" />
@@ -43,7 +49,7 @@
         </form>
       </div>
       <div class="col-md-4">
-        <h2>Delivery</h2>
+        <h4>Delivery</h4>
         <form>
           <label for="homedelivery">Homedelivery</label>
           <input
@@ -57,8 +63,9 @@
         </form>
       </div>
       <div class="col-md-4">
-        <h2>Payment</h2>
-
+        <h4>Payment</h4>
+        <p>You total amount is: {{ $store.state.total }}.</p>
+        <p>Please choose desired payment option.</p>
         <form>
           <label for="paypal"><i class="bi bi-paypal" /> Paypal</label>
           <input type="radio" id="paypal" name="payment" value="Paypal" />
@@ -77,10 +84,11 @@
       </div>
     </div>
   </div>
-
-  <RouterLink to="/confirmation">
-    <button type="button" class="btn btn-success" style="margin: 30px">
-      Confirmation
-    </button>
-  </RouterLink>
+  <div id="confirmationbutton">
+    <RouterLink to="/confirmation">
+      <button type="button" class="btn btn-success" style="margin: 30px">
+        Confirmation
+      </button>
+    </RouterLink>
+  </div>
 </template>
