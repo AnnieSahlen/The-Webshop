@@ -2,8 +2,10 @@
 
 <style>
   #footer {
+    /* background-image: linear-gradient(white, #a08c5b); */
     background-color: #a08c5b;
     text-align: center;
+    margin-top: 0px;
   }
 
   i {

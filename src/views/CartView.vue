@@ -1,14 +1,15 @@
 <script>
   export default {
-    data() {
-      return { totalamount: 0 }
-    },
+    // data() {
+    //   return { totalamount: 0 }
+    // },
     computed: {
       cart() {
         return this.$store.state.cart
       },
-      selectedSize() {
-        return this.$store.state.selectedSize
+      total() {
+        this.$store.commit('total')
+        return this.$store.state.total
       }
     }
   }
@@ -65,24 +66,25 @@
         <div class="col-3">
           <h4>Total amount:</h4>
         </div>
-        <!-- <div class="col-3" :key="index" v-for="(product, index) in cart">
-          {{ totalamount }}
-        </div> -->
-        <!-- ???????????Hur lägga totalen????? -->
+        <div class="col-3">
+          <h4>{{ total }}</h4>
+        </div>
         <div class="col-3" />
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-12" style="text-align: center">
-        <button
-          v-if="cart.length > 0"
-          type="button"
-          class="btn btn-success"
-          style="margin: 30px"
-        >
-          To payment
-        </button>
+      <div class="row">
+        <div class="col-12" style="text-align: center">
+          <RouterLink to="/pay">
+            <button
+              v-if="cart.length > 0"
+              type="button"
+              class="btn btn-success"
+              style="margin: 30px"
+            >
+              To payment
+            </button>
+          </RouterLink>
+        </div>
       </div>
     </div>
   </div>
