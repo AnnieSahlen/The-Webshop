@@ -9,6 +9,11 @@
         miniMenuOpen: false
       }
     },
+    methods: {
+      hideMenuOnClick() {
+        this.menuOpen = false
+      }
+    },
     computed: {
       cart() {
         return this.$store.state.cart
@@ -50,10 +55,14 @@
     overflow: hidden;
   }
   .dropdown-after {
-    height: 40vh;
+    height: auto;
     width: 100vw;
     transition: height 0.2s, width 0.2s ease;
-    overflow: scroll;
+    z-index: 10;
+    position: absolute;
+    /* border-bottom: 6px solid #a08c5b; */
+    top: 100%;
+    background-color: white;
   }
   .nested-dropdown {
     height: 0px;
@@ -61,20 +70,19 @@
     overflow: hidden;
   }
   .nested-dropdown-after {
-    height: 12vh;
+    height: auto;
     width: 100vw;
     transition: height 0.2s, width 0.2s ease;
-    overflow: scroll;
   }
   .navlist {
     list-style: none;
     padding: 0;
+    margin: 2px;
   }
   .navlistitem {
     text-align: center;
     padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px 0px;
     color: #3c2502;
     background-color: #e9dbbc;
   }
@@ -88,7 +96,7 @@
   <!-- <HamburgerMenu /> -->
 
   <!--Header: hamburgerikonen-->
-  <div class="container-fluid mx-0 px-0">
+  <div class="container-fluid mx-0 px-0" style="position: relative">
     <div class="row gy-2 mx-0 px-0 mt-4 mb-4">
       <div class="col-6">
         <button class="hamburger" type="button" @click="menuOpen = !menuOpen">
@@ -98,7 +106,11 @@
 
       <!--Header: ikonerna till höger-->
       <div class="col-6 nav-icons">
-        <i class="bi bi-search" style="font-size: 1.3rem; color: #5f4338" />
+        <i
+          @click="hideMenuOnClick"
+          class="bi bi-search"
+          style="font-size: 1.3rem; color: #5f4338"
+        />
         <RouterLink to="/cart"
           ><i
             class="bi bi-bag-dash"
