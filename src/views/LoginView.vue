@@ -4,15 +4,17 @@
       <div class="col-md-3" />
       <div class="col-md-6">
         <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            v-model="email"
-            required
-            aria-describedby="emailHelp"
-          />
+          <form @submit.prevent="Submit">
+            <label for="email" class="form-label">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              v-model="form.email"
+              required
+              aria-describedby="emailHelp"
+            />
+          </form>
           <div id="emailHelp" class="form-text">
             We'll never share your email with anyone else.
           </div>
@@ -23,21 +25,24 @@
             type="password"
             class="form-control"
             id="password"
-            v-model="password"
+            v-model="form.password"
             required
           />
         </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-          <label class="form-check-label" for="exampleCheck1"
-            >Check me out</label
-          >
-        </div>
-        <button class="btn btn-secondary">Login</button>
+        <router-link
+          class="btn btn-secondary"
+          v-if="!$store.state.email"
+          to="/login"
+        >
+          Login
+        </router-link>
+
+        <a v-if="$store.state.email" @click="logout"> Logout </a>
         <router-link class="btn btn-secondary" to="/register"
           >Create Account</router-link
         >
       </div>
+
       <div class="col-md-3" />
     </div>
   </div>
@@ -45,17 +50,17 @@
 
 <script>
   export default {
-    name: 'LogIn',
     data() {
       return {
-        email: '',
-        password: ''
+        form: {
+          email: '',
+          password: ''
+        }
       }
     },
     methods: {
-      Login: function () {
-        console.log('Email: ' + this.email)
-        console.log('Password: ' + this.password)
+      Submit() {
+        this.$store.commit('login', this.form.email)
       }
     }
   }

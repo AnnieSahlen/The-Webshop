@@ -6,6 +6,7 @@
     background-color: #a08c5b60;
 
     text-align: center;
+
     /* max-width: 900px; */
     margin-top: 200px;
     padding: 2.5rem;

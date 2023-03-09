@@ -3,15 +3,18 @@
 </script>
 
 <style scoped>
-  #confirmation {
+  div {
     text-align: center;
+    height: 300px;
   }
 </style>
 
 <template>
-  <div id="confirmation">
-    <h1>Thank you for your order!</h1>
-
-    <p>Information about your order will be sent to your email.</p>
+  <div>
+    <h1>Confirmation</h1>
+    <p style="margin-top: 20px">
+      Thank you for your order. Confirmation will be sent to:
+      {{ $store.state.mail }}
+    </p>
   </div>
 </template>

@@ -1,5 +1,9 @@
 <script>
-  export default {}
+  export default {
+    data() {
+      return { x: '' }
+    }
+  }
 </script>
 
 <style scoped>
@@ -26,6 +30,13 @@
     display: flex;
     justify-content: center;
   }
+
+  label,
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 </style>
 
 <template>
@@ -43,16 +54,18 @@
         <form action="">
           <input id="sur-name" placeholder="Efternamn" type="text" />
           <input id="first-name" name="first-name" placeholder="Förnamn" />
-          <input id="email" placeholder="Email" type="text" />
+          <input id="email" placeholder="Email" type="text" v-model="x" />
           <input id="phonenumber" placeholder="Phonenumber" type="text" />
           <input id="streetadress" placeholder="Streetadress" type="text" />
           <input id="city" placeholder="City" type="text" />
           <input id="postalcode" placeholder="Postal code" type="text" />
         </form>
       </div>
+    </div>
+    <div class="row">
       <div class="col-sm-12">
         <h4>Delivery</h4>
-        <form>
+        <form id="radio">
           <label for="homedelivery">Homedelivery</label>
           <input
             type="radio"
@@ -64,10 +77,13 @@
           <input type="radio" id="pickup" name="delivery" value="Pick-up" />
         </form>
       </div>
+    </div>
+    <div class="row">
       <div class="col-sm-12">
         <h4>Payment</h4>
         <p>You total amount is: {{ $store.state.total }}.</p>
         <p>Please choose desired payment option.</p>
+
         <form>
           <label for="paypal"><i class="bi bi-paypal" /> Paypal</label>
           <input type="radio" id="paypal" name="payment" value="Paypal" />
@@ -89,7 +105,12 @@
   </div>
   <div id="confirmationbutton">
     <RouterLink to="/confirmation">
-      <button type="button" class="btn btn-success" style="margin: 30px">
+      <button
+        type="button"
+        class="btn btn-success"
+        style="margin: 30px"
+        @click="$store.commit('changeEmail', x)"
+      >
         Confirmation
       </button>
     </RouterLink>

@@ -17,6 +17,14 @@
       HeaderComponent,
       FooterComponent
       // HamburgerMenu
+    },
+    methods: {
+      logout() {
+        this.$store.commit('logout')
+      }
+    },
+    mounted() {
+      this.$store.commit('setsomethingStore')
     }
   }
 </script>
