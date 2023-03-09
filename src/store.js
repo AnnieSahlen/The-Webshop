@@ -1,5 +1,10 @@
 import { createStore } from 'vuex'
 
+/*
+getters: {
+}
+*/
+
 const mutations = {
     addItemToCart(state, product) {
       state.cart.push({
@@ -13,6 +18,23 @@ const mutations = {
       state.size = size
     },
 
+    login(state, email) {
+      state.email = email
+      localStorage.setItem('email', email)
+      alert('logged in')
+    },
+
+    logout(state) {
+      state.email = ''
+      localStorage.removeItem('email')
+      alert('logged out')
+    },
+    setsomethingStore(state) {
+      if (localStorage.getItem('email')) {
+        state.email = localStorage.getItem('email')
+      }
+    },
+
     removeItemFromCart(state, product) {
       state.cart.splice(product.index, 1)
     },
@@ -23,7 +45,9 @@ const mutations = {
       )
     },
 
-    //   Den här koden definierar en funktion som heter total(), som beräknar totalpriset för alla objekt som finns i cart -enhetens varukorg.
+    changeEmail(state, x) {
+      state.mail = x
+    },
 
     // Funktionen använder Object.values() för att hämta en array av alla värden (alltså objekt) som finns i cart-objektet. Sedan använder den reduce() metoden på arrayen för att summera priset av varje objekt i varukorgen.
 
@@ -48,9 +72,11 @@ const mutations = {
     page: 'products',
     cart: [],
     products: '',
+    total: 0,
+    email: '',
     value: '',
     size: '',
-    total: 0
+    mail: ''
   }
 
 export default createStore({ mutations, state, strict: true })

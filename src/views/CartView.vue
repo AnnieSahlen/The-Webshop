@@ -64,6 +64,20 @@
         </ol>
       </div>
       <!-- Rad 4 total amount -->
+      <div class="col-12" style="text-align: center" v-if="cart.length === 0">
+        <p>Your cart is empty.</p>
+
+        <routerLink to="/#">
+          <button
+            type="button"
+            class="btn btn-success"
+            style="margin: 30px, display: flex;"
+          >
+            To products
+          </button>
+        </routerLink>
+      </div>
+
       <div v-if="cart.length > 0" class="row" style="padding-top: 20px">
         <div class="col-3" />
         <div class="col-3">
@@ -93,7 +107,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
   body {
     margin: 0;
   }
