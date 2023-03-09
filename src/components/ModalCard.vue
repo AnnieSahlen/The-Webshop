@@ -17,6 +17,37 @@
 
 <script>
   export default {
+    created() {
+      this.$watch(
+        () => this.$store.state.value,
+        () => {
+          this.onUpdateSize()
+        },
+        { immediate: true }
+      )
+    },
+    // data() {
+    //   return {
+    //     value: ''
+    //   }
+    // },
+    computed: {
+      size: {
+        get() {
+          return this.$store.state.size
+        },
+        set(value) {
+          this.$store.commit('setSize', value)
+          console.log(value)
+        }
+      }
+    },
+    emits: ['update-size'],
+    methods: {
+      onUpdateSize() {
+        this.$store.commit('setSize', this.value)
+      }
+    },
     props: {
       title: {
         type: String,
@@ -79,8 +110,10 @@
                 <input
                   class="form-check-input"
                   type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
+                  :name="'flexRadioDefault' + productId"
+                  :id="'flexRadioDefault1' + productId"
+                  v-model="size"
+                  value="S"
                 />
                 <label class="form-check-label" for="flexRadioDefault1">
                   S
@@ -90,8 +123,10 @@
                 <input
                   class="form-check-input"
                   type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
+                  :name="'flexRadioDefault' + productId"
+                  :id="'flexRadioDefault1' + productId"
+                  v-model="size"
+                  value="M"
                 />
                 <label class="form-check-label" for="flexRadioDefault1">
                   M
@@ -101,14 +136,30 @@
                 <input
                   class="form-check-input"
                   type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
+                  :name="'flexRadioDefault' + productId"
+                  :id="'flexRadioDefault1' + productId"
+                  v-model="size"
+                  value="L"
                 />
                 <label class="form-check-label" for="flexRadioDefault1">
                   L
                 </label>
+                <div>
+                  <h6>{{ $store.state.size }}</h6>
+                </div>
               </div>
-
+              <!--  boots radio knappar -->
+              <!-- <div>
+                <b-form-group>
+                  <b-form-radio v-model="size" name="boots-radio" value="small"
+                    >Small</b-form-radio
+                  >
+                  <b-form-radio v-model="size" name="boots-radio" value="medium"
+                    >Medium</b-form-radio
+                  >
+                </b-form-group>
+              </div> -->
+              <!-- boooots -->
               <!-- Choose amount -->
               <div class="dropdown col-4">
                 <button
@@ -136,7 +187,8 @@
                   this.$store.commit('addItemToCart', {
                     title: this.title,
                     price: this.price,
-                    image: this.image
+                    image: this.image,
+                    size: this.size
                   })
                 "
               >

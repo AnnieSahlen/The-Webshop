@@ -29,7 +29,8 @@
   }
 </script>
 <style>
-  main {
+  main,
+  header {
     max-width: 900px;
     margin: 0 auto;
   }
@@ -55,8 +56,7 @@
       </li>
     </ul>
   </nav> -->
-
-    <HeaderComponent />
+    <header><HeaderComponent /></header>
 
     <main>
       <RouterView />

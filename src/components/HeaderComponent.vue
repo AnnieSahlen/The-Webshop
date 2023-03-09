@@ -77,7 +77,7 @@
   .navlist {
     list-style: none;
     padding: 0;
-    margin: 2px;
+    margin: 0;
   }
   .navlistitem {
     text-align: center;
@@ -90,6 +90,38 @@
     color: #a08c5b;
     cursor: pointer;
   }
+
+  @media (min-width: 576px) {
+    .hamburger {
+      display: none;
+    }
+    .dropdown {
+      height: auto;
+    }
+    .dropdown-after {
+      display: flex;
+      justify-content: center;
+      position: fixed;
+    }
+    .navlist {
+      display: flex;
+      justify-content: space-evenly;
+      /* max-width: 900px; */
+    }
+    .navlistitem {
+      background-color: white;
+      color: #3c2502;
+    }
+    .mini-navlist {
+      display: flex;
+      flex-direction: column;
+      /* position: absolute; */
+    }
+    .nested-dropdown,
+    .nested-dropdown-after {
+      max-width: fit-content;
+    }
+  }
 </style>
 
 <template>
@@ -98,14 +130,15 @@
   <!--Header: hamburgerikonen-->
   <div class="container-fluid mx-0 px-0" style="position: relative">
     <div class="row gy-2 mx-0 px-0 mt-4 mb-4">
-      <div class="col-6">
+      <div class="col-6 order-sm-last">
         <button class="hamburger" type="button" @click="menuOpen = !menuOpen">
           <i class="bi bi-list" style="font-size: 1.3rem; color: #5f4338" />
         </button>
       </div>
 
       <!--Header: ikonerna till höger-->
-      <div class="col-6 nav-icons">
+
+      <div class="col-6 nav-icons order-sm-2">
         <i
           @click="hideMenuOnClick"
           class="bi bi-search"
@@ -128,17 +161,22 @@
       </div>
 
       <!--Loggan-->
-      <div class="col-12 text-center">
+      <div class="col-12 col-sm-6 text-center order-sm-1">
         <RouterLink to="/"><h1>Webshop</h1></RouterLink>
       </div>
 
       <!--När man trycker på hamburgerikonen-->
       <div
-        class="row dropdown mx-0 px-0"
+        class="dropdown mx-0 px-0 order-sm-3"
         :class="{ 'dropdown-after': menuOpen }"
       >
+        <!--Tog bort class "row" från diven ovan. Skriver kommentar ifall nåt skulle bli galet.-->
         <ul class="navlist">
-          <RouterLink to="/"><li class="navlistitem">Home</li></RouterLink>
+          <RouterLink to="/"
+            ><li class="navlistitem" @click="hideMenuOnClick">
+              Home
+            </li></RouterLink
+          >
 
           <!--Product Gallery-länken-->
           <li class="navlistitem" @click="miniMenuOpen = !miniMenuOpen">
@@ -147,10 +185,10 @@
               class="row nested-dropdown mx-0 px-0"
               :class="{ 'nested-dropdown-after': miniMenuOpen }"
             >
-              <ul class="navlist">
+              <ul class="navlist mini-navlist">
                 <RouterLink to="/productgallery"
                   ><li
-                    @click="this.$store.commit('womanClick')"
+                    @click="this.$store.commit('womanClick'), hideMenuOnClick()"
                     class="navlistitem"
                   >
                     Women
@@ -158,7 +196,7 @@
                 >
                 <RouterLink to="/productgallery"
                   ><li
-                    @click="this.$store.commit('menClick')"
+                    @click="this.$store.commit('menClick'), hideMenuOnClick()"
                     class="navlistitem"
                   >
                     Men
@@ -169,12 +207,20 @@
           </li>
 
           <!--Cart, About och Contact-->
-          <RouterLink to="/cart"><li class="navlistitem">Cart</li></RouterLink>
+          <RouterLink to="/cart"
+            ><li class="navlistitem" @click="hideMenuOnClick">
+              Cart
+            </li></RouterLink
+          >
           <RouterLink to="/about"
-            ><li class="navlistitem">About</li></RouterLink
+            ><li class="navlistitem" @click="hideMenuOnClick">
+              About
+            </li></RouterLink
           >
           <RouterLink to="/contact"
-            ><li class="navlistitem">Contact</li></RouterLink
+            ><li class="navlistitem" @click="hideMenuOnClick">
+              Contact
+            </li></RouterLink
           >
         </ul>
       </div>
