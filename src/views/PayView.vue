@@ -2,12 +2,7 @@
   export default {}
 </script>
 
-<style>
-  #form {
-    display: flex;
-    justify-content: center;
-  }
-
+<style scoped>
   label {
     display: flex;
     margin-top: 10px;
@@ -15,23 +10,36 @@
 
   input {
     display: flex;
+    margin-top: 20px;
   }
 
-  #contactinformation {
-    border-style: outset;
+  .col-sm-12 {
+    /* display: flex; */
+    border: double;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    /* justify-content: center; */
   }
 
-  .container-fluid {
-    margin-bottom: 20px;
+  #confirmationbutton {
+    display: flex;
+    justify-content: center;
   }
 </style>
 
 <template>
-  <h1>Test: {{ this.$store.state.products }}</h1>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4">
-        <h2>Contactinformation</h2>
+      <div class="col-sm-12">
+        <p>Summary of your order:</p>
+        <p :key="index" v-for="(product, index) in $store.state.cart">
+          {{ product.title }} {{ product.price }}
+        </p>
+        <p style="font-weight: bold">Total: {{ $store.state.total }}</p>
+      </div>
+      <div class="col-sm-12" id="contactinformation">
+        <h4>Contactinformation</h4>
         <form action="">
           <input id="sur-name" placeholder="Efternamn" type="text" />
           <input id="first-name" name="first-name" placeholder="Förnamn" />
@@ -42,8 +50,8 @@
           <input id="postalcode" placeholder="Postal code" type="text" />
         </form>
       </div>
-      <div class="col-md-4">
-        <h2>Delivery</h2>
+      <div class="col-sm-12">
+        <h4>Delivery</h4>
         <form>
           <label for="homedelivery">Homedelivery</label>
           <input
@@ -56,12 +64,14 @@
           <input type="radio" id="pickup" name="delivery" value="Pick-up" />
         </form>
       </div>
-      <div class="col-md-4">
-        <h2>Payment</h2>
-
+      <div class="col-sm-12">
+        <h4>Payment</h4>
+        <p>You total amount is: {{ $store.state.total }}.</p>
+        <p>Please choose desired payment option.</p>
         <form>
           <label for="paypal"><i class="bi bi-paypal" /> Paypal</label>
           <input type="radio" id="paypal" name="payment" value="Paypal" />
+
           <label for="creditcard"
             ><i class="bi bi-credit-card-2-back" /> Creditcard</label
           >
@@ -77,10 +87,11 @@
       </div>
     </div>
   </div>
-
-  <RouterLink to="/confirmation">
-    <button type="button" class="btn btn-success" style="margin: 30px">
-      Confirmation
-    </button>
-  </RouterLink>
+  <div id="confirmationbutton">
+    <RouterLink to="/confirmation">
+      <button type="button" class="btn btn-success" style="margin: 30px">
+        Confirmation
+      </button>
+    </RouterLink>
+  </div>
 </template>

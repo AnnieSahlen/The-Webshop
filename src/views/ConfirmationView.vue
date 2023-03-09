@@ -10,7 +10,8 @@
 
 <template>
   <div id="confirmation">
-    <h4>Hej{{ $store.state.total }}</h4>
-    <p>Thank you for your order!</p>
+    <h1>Thank you for your order!</h1>
+
+    <p>Information about your order will be sent to your email.</p>
   </div>
 </template>
