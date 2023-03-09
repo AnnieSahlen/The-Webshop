@@ -12,7 +12,6 @@ const mutations = {
     setSize(state, size) {
       state.size = size
     },
-
     removeItemFromCart(state, product) {
       state.cart.splice(product.index, 1)
     },
@@ -21,6 +20,9 @@ const mutations = {
         (accumulator, value) => accumulator + value.price,
         0
       )
+    },
+    changeEmail(state, x) {
+      state.mail = x
     },
 
     //   Den här koden definierar en funktion som heter total(), som beräknar totalpriset för alla objekt som finns i cart -enhetens varukorg.
@@ -50,7 +52,8 @@ const mutations = {
     products: '',
     value: '',
     size: '',
-    total: 0
+    total: 0,
+    mail: ''
   }
 
 export default createStore({ mutations, state, strict: true })
