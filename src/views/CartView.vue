@@ -34,13 +34,15 @@
           >
             <!-- Rad 2 * antal varor -->
             <div class="row" id="row">
-              <div class="col-3">
+              <div class="col-2">
                 <img style="height: 50px" :src="product.image" alt="" />
               </div>
-
-              <div class="col-3">{{ product.title }}</div>
-              <div class="col-3">{{ 'Price:' + ' ' + product.price }}</div>
-              <div class="col-3">
+              <div class="col-1">{{ product.size }}</div>
+              <div class="col-6">{{ product.title }}</div>
+              <div class="col-1">
+                {{ 'Price:' + ' ' + '£' + product.price }}
+              </div>
+              <div class="col-sm-2 col-lg-1">
                 <button
                   class="btn btn-secondary btn-sm"
                   @click="
@@ -54,8 +56,9 @@
                 >
                   Remove
                 </button>
-                <div>{{ product.size }}</div>
               </div>
+              <!-- insert amout here for desktop /Flutra -->
+              <div class="col-1">Amout</div>
             </div>
           </li>
         </ol>
