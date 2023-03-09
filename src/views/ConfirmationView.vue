@@ -2,7 +2,7 @@
   export default {}
 </script>
 
-<style>
+<style scoped>
   #confirmation {
     text-align: center;
   }

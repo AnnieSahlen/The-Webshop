@@ -1,4 +1,4 @@
-<style>
+<style scoped>
   .home-pictures img {
     width: 100%;
   }

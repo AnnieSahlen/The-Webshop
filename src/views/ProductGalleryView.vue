@@ -49,15 +49,21 @@
   }
 </script>
 <style scoped>
-  .card-body {
-    height: 120px;
+  .card {
+    margin: auto;
+    border: 0px;
+  }
+  card-body {
+    margin: auto;
   }
   img {
     padding-left: 40px;
     padding-right: 40px;
     padding-top: 10px;
-    height: 100px;
-    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .card-title {
     font-size: smaller;
@@ -92,7 +98,7 @@
     </b-dropdown>
   </div>
 
-  <!-- cards -->
+  <!-- cards, varför går ej col-xs-6???-->
   <div class="container-fluid">
     <div class="row gy-4">
       <div
@@ -101,34 +107,18 @@
         :key="product.id"
         v-for="product in sortedProducts"
       >
-        <div id="container">
-          <div
-            class="card h-100"
-            style="width: 10rem"
-            data-bs-toggle="modal"
-            :data-bs-target="'#exampleModal-' + product.id"
-          >
-            <img :src="product.image" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">{{ product.title }}</h5>
-              <h6>€ {{ product.price }}</h6>
-            </div>
+        <div
+          class="card h-100"
+          style="width: 10rem"
+          data-bs-toggle="modal"
+          :data-bs-target="'#exampleModal-' + product.id"
+        >
+          <img :src="product.image" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <h6>€ {{ product.price }}</h6>
           </div>
         </div>
-        <!-- <div id="container">
-          <div
-            class="card h-100"
-            style="width: 10rem"
-            data-bs-toggle="modal"
-            :data-bs-target="'#exampleModal-' + product.id"
-          >
-            <img :src="product.image" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">{{ product.title }}</h5>
-              <h6>€ {{ product.price }}</h6>
-            </div>
-          </div>
-        </div> -->
 
         <ModalCard
           :title="product.title"
@@ -137,6 +127,29 @@
           :description="product.description"
           :image="product.image"
         />
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row gy-4">
+      <div
+        class="col-6 col-sm-3"
+        align="center"
+        :key="product.id"
+        v-for="product in sortedProducts"
+      >
+        <div
+          class="card h-100"
+          style="width: 10rem"
+          data-bs-toggle="modal"
+          :data-bs-target="'#exampleModal-' + product.id"
+        >
+          <img :src="product.image" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <h6>€ {{ product.price }}</h6>
+          </div>
+        </div>
       </div>
     </div>
   </div>
