@@ -5,10 +5,17 @@ const mutations = {
       state.cart.push({
         title: product.title,
         price: product.price,
-        image: product.image
+        image: product.image,
+        size: product.size
       })
     },
+    setSize(state, size) {
+      state.size = size
+    },
 
+    removeItemFromCart(state, product) {
+      state.cart.splice(product.index, 1)
+    },
     total(state) {
       state.total = Object.values(this.state.cart).reduce(
         (accumulator, value) => accumulator + value.price,
@@ -27,11 +34,6 @@ const mutations = {
 
     // Till slut returnerar total() funktionen det totala priset som beräknats med hjälp av reduce() metoden.
 
-    removeItemFromCart(state, product) {
-      console.log(product.index)
-      state.cart.splice(product.index, 1)
-    },
-
     womanClick(state) {
       state.fetchUrl =
         "https://fakestoreapi.com/products/category/women's%20clothing"
@@ -49,6 +51,8 @@ const mutations = {
     page: 'products',
     cart: [],
     products: '',
+    value: '',
+    size: '',
     total: 0
   }
 

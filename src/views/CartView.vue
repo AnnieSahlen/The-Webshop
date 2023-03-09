@@ -7,7 +7,6 @@
       cart() {
         return this.$store.state.cart
       },
-
       total() {
         this.$store.commit('total')
         return this.$store.state.total
@@ -55,6 +54,7 @@
                 >
                   Remove
                 </button>
+                <div>{{ product.size }}</div>
               </div>
             </div>
           </li>
