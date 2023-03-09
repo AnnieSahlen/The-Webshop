@@ -1,5 +1,10 @@
 import { createStore } from 'vuex'
 
+/*
+getters: {
+}
+*/
+
 const mutations = {
     addItemToCart(state, product) {
       state.cart.push({
@@ -9,6 +14,22 @@ const mutations = {
       })
 
       // console.log('hej')
+    },
+    login(state, email) {
+      state.email = email
+      localStorage.setItem('email', email)
+      alert('logged in')
+    },
+
+    logout(state) {
+      state.email = ''
+      localStorage.removeItem('email')
+      alert('logged out')
+    },
+    setsomethingStore(state) {
+      if (localStorage.getItem('email')) {
+        state.email = localStorage.getItem('email')
+      }
     },
 
     total(state) {
@@ -51,7 +72,8 @@ const mutations = {
     page: 'products',
     cart: [],
     products: '',
-    total: 0
+    total: 0,
+    email: ''
   }
 
 export default createStore({ mutations, state, strict: true })
