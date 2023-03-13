@@ -1,5 +1,13 @@
 <script>
   export default {
+    // methods: {
+    //   combineEvents: function () {
+    //     this.$store.commit('changeEmail', x)
+    //     this.$store.commit('refresh')
+    //   }
+    // },
+
+    // varför fungerar inte ovan metod, x is undefined?
     data() {
       return { x: '' }
     }
@@ -7,23 +15,26 @@
 </script>
 
 <style scoped>
+  .container-fluid {
+    width: 300px;
+  }
+
   label {
-    display: flex;
+    display: inline;
     margin-top: 10px;
   }
 
   input {
-    display: flex;
+    display: inline;
     margin-top: 20px;
   }
 
   .col-sm-12 {
-    /* display: flex; */
     border: double;
+    border-radius: 2%;
     padding: 5px;
     margin-bottom: 10px;
     text-align: center;
-    /* justify-content: center; */
   }
 
   #confirmationbutton {
@@ -37,6 +48,33 @@
     flex-direction: column;
     justify-content: center;
   }
+
+  .formpaymentdeliver {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .text {
+    text-align: left;
+  }
+
+  @media only screen and (min-width: 600px) {
+    .container-fluid {
+      width: 400px;
+    }
+  }
+
+  @media only screen and (min-width: 800px) {
+    .container-fluid {
+      width: 600px;
+    }
+  }
+
+  @media only screen and (min-width: 900px) {
+    .container-fluid {
+      width: 800px;
+    }
+  }
 </style>
 
 <template>
@@ -45,60 +83,94 @@
       <div class="col-sm-12">
         <p>Summary of your order:</p>
         <p :key="index" v-for="(product, index) in $store.state.cart">
-          {{ product.title }} {{ product.price }}
+          {{ product.title }} £{{ product.price }}
         </p>
-        <p style="font-weight: bold">Total: {{ $store.state.total }}</p>
+        <p style="font-weight: bold">Total: £{{ $store.state.total }}</p>
       </div>
       <div class="col-sm-12" id="contactinformation">
         <h4>Contactinformation</h4>
         <form action="">
-          <input id="sur-name" placeholder="Efternamn" type="text" />
-          <input id="first-name" name="first-name" placeholder="Förnamn" />
-          <input id="email" placeholder="Email" type="text" v-model="x" />
-          <input id="phonenumber" placeholder="Phonenumber" type="text" />
-          <input id="streetadress" placeholder="Streetadress" type="text" />
-          <input id="city" placeholder="City" type="text" />
-          <input id="postalcode" placeholder="Postal code" type="text" />
+          <input id="first-name" name="first-name" placeholder="Firstname" />
+          <input id="sur-name" name="sur-name" placeholder="Surnamne" />
+          <input id="email" name="email" placeholder="Email" v-model="x" />
+          <input
+            id="phonenumber"
+            name="phonenumber"
+            placeholder="Phonenumber"
+          />
+          <input
+            id="streetadress"
+            name="streetadress"
+            placeholder="Streetadress"
+          />
+          <input id="city" name="city" placeholder="City" />
+          <input id="postalcode" name="postalcode" placeholder="Postal code" />
         </form>
       </div>
     </div>
+
+    <!-- Form for delivery -->
     <div class="row">
       <div class="col-sm-12">
         <h4>Delivery</h4>
-        <form id="radio">
-          <label for="homedelivery">Homedelivery</label>
+
+        <form class="formpaymentdeliver col-12">
           <input
+            class="col-2"
             type="radio"
             id="paypal"
             name="delivery"
             value="Homedelivery"
           />
-          <label for="pick-up">Pick-Up</label>
-          <input type="radio" id="pickup" name="delivery" value="Pick-up" />
+          <label class="col-4 text" for="homedelivery">Homedelivery</label>
+          <input
+            class="col-2"
+            type="radio"
+            id="pickup"
+            name="delivery"
+            value="Pick-up"
+          />
+          <label class="col-4 text" for="pick-up">Pick-Up</label>
         </form>
       </div>
     </div>
+
+    <!-- Form for payment -->
     <div class="row">
       <div class="col-sm-12">
         <h4>Payment</h4>
-        <p>You total amount is: {{ $store.state.total }}.</p>
+        <p>You total amount is: £{{ $store.state.total }}.</p>
         <p>Please choose desired payment option.</p>
 
-        <form>
-          <label for="paypal"><i class="bi bi-paypal" /> Paypal</label>
-          <input type="radio" id="paypal" name="payment" value="Paypal" />
-
-          <label for="creditcard"
-            ><i class="bi bi-credit-card-2-back" /> Creditcard</label
-          >
+        <form class="formpaymentdeliver col-12">
           <input
+            class="col-1"
+            type="radio"
+            id="paypal"
+            name="payment"
+            value="Paypal"
+          />
+          <label class="col-3 text" for="paypal"> Paypal</label>
+          <!--  -->
+
+          <input
+            class="col-1"
             type="radio"
             id="creditcard"
             name="payment"
             value="Creditcard"
           />
-          <label for="invoice"><i class="bi bi-receipt" /> Invoice</label>
-          <input type="radio" id="invoice" name="payment" value="Invoice" />
+          <label class="col-3 text" for="creditcard"> Creditcard</label>
+          <!--  -->
+          <input
+            class="col-1"
+            type="radio"
+            id="invoice"
+            name="payment"
+            value="Invoice"
+          />
+          <label class="col-3 text" for="invoice"> Invoice</label>
+          <!-- <i class="bi bi-receipt" /> -->
         </form>
       </div>
     </div>
@@ -107,9 +179,11 @@
     <RouterLink to="/confirmation">
       <button
         type="button"
-        class="btn btn-success"
+        class="btn btn-primary"
         style="margin: 30px"
-        @click="$store.commit('changeEmail', x)"
+        @click="
+          this.$store.commit('changeEmail', x), this.$store.commit('refresh')
+        "
       >
         Confirmation
       </button>
