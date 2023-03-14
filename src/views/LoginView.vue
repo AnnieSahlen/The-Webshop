@@ -4,17 +4,16 @@
       <div class="col-md-3" />
       <div class="col-md-6">
         <div class="mb-3">
-          <form @submit.prevent="Submit">
-            <label for="email" class="form-label">Email address</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              v-model="form.email"
-              required
-              aria-describedby="emailHelp"
-            />
-          </form>
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            v-model="email"
+            required
+            aria-describedby="emailHelp"
+          />
+
           <div id="emailHelp" class="form-text">
             We'll never share your email with anyone else.
           </div>
@@ -25,19 +24,22 @@
             type="password"
             class="form-control"
             id="password"
-            v-model="form.password"
+            v-model="password"
             required
           />
         </div>
-        <router-link
+        <button
           class="btn btn-secondary"
-          v-if="!$store.state.email"
-          to="/login"
+          @click="
+            this.$store.commit('logIn', {
+              email: email,
+              password: password
+            })
+          "
         >
           Login
-        </router-link>
+        </button>
 
-        <a v-if="$store.state.email" @click="logout"> Logout </a>
         <router-link class="btn btn-secondary" to="/register"
           >Create Account</router-link
         >
@@ -49,21 +51,7 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        form: {
-          email: '',
-          password: ''
-        }
-      }
-    },
-    methods: {
-      Submit() {
-        this.$store.commit('login', this.form.email)
-      }
-    }
-  }
+  export default {}
 </script>
 
 <style scoped>

@@ -9,6 +9,7 @@ import LoginView from './views/LoginView.vue'
 import RegisterView from './views/RegisterView.vue'
 import PayView from './views/PayView.vue'
 import ConfirmationView from './views/ConfirmationView.vue'
+import UserView from './views/UserView.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -48,6 +49,10 @@ export default createRouter({
     {
       component: HomeView,
       path: '/'
+    },
+    {
+      component: UserView,
+      path: '/user'
     }
   ]
 })

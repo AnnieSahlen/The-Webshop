@@ -155,9 +155,16 @@
           <!-- Ovanstående span tillagd av Sandra för att lägga till antal varor i cart -->
         </RouterLink>
         <i class="bi bi-heart" style="font-size: 1.3rem; color: #5f4338" />
-        <RouterLink to="/Login"
+        <!-- Här nedanför är lite nytt med inloggningen av Jennifer -->
+        <!--Första if satsen kollar om det finns någon inloggad--><RouterLink
+          v-if="Object.keys($store.state.user).length === 0"
+          to="/Login"
           ><i class="bi bi-door-open" style="font-size: 1.3rem; color: #5f4338"
         /></RouterLink>
+        <!--Andra if satsen kollar om det inte finns någon inloggad-->
+        <RouterLink to="/user" v-if="Object.keys($store.state.user).length > 0">
+          <i class="bi bi-person" style="font-size: 1.3rem; color: #5f4338" />
+        </RouterLink>
       </div>
 
       <!--Loggan-->
