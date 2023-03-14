@@ -1,8 +1,5 @@
 <script>
   export default {
-    // data() {
-    //   return { totalamount: 0 }
-    // },
     computed: {
       cart() {
         return this.$store.state.cart
@@ -46,7 +43,7 @@
               </div>
               <div class="col-sm-1 col-lg-1">
                 <button
-                  class="btn btn-secondary btn-sm"
+                  class="btn btn-danger btn-sm"
                   @click="
                     this.$store.commit('removeItemFromCart', {
                       title: product.title,
@@ -87,7 +84,7 @@
           <h4>Total amount:</h4>
         </div>
         <div class="col-3">
-          <h4>{{ total }}</h4>
+          <h4>£{{ total }}</h4>
         </div>
         <div class="col-3" />
       </div>
@@ -98,10 +95,15 @@
             <button
               v-if="cart.length > 0"
               type="button"
-              class="btn btn-success"
+              class="btn btn-primary"
               style="margin: 30px"
             >
               To payment
+            </button>
+          </RouterLink>
+          <RouterLink to="/productgallery">
+            <button type="button" class="btn btn-primary" style="margin: 30px">
+              Keep shopping
             </button>
           </RouterLink>
         </div>

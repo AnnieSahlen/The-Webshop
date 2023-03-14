@@ -44,6 +44,7 @@
     height: 45px;
     border: none;
     background-color: white;
+    margin-top: -8px;
     /* border-radius: 4px; */
   }
   .dropdown {
@@ -106,7 +107,6 @@
     .navlist {
       display: flex;
       justify-content: space-evenly;
-      /* max-width: 900px; */
     }
     .navlistitem {
       background-color: white;
@@ -126,103 +126,107 @@
 
 <template>
   <!-- <HamburgerMenu /> -->
+  <div id="navbar">
+    <!--Header: hamburgerikonen-->
+    <div class="container-fluid mx-0 px-0" style="position: relative">
+      <div class="row gy-2 mx-0 px-0 mt-4 mb-4">
+        <div class="col-2 order-sm-last">
+          <button class="hamburger" type="button" @click="menuOpen = !menuOpen">
+            <i class="bi bi-list" style="font-size: 2rem; color: #5f4338" />
+          </button>
+        </div>
 
-  <!--Header: hamburgerikonen-->
-  <div class="container-fluid mx-0 px-0" style="position: relative">
-    <div class="row gy-2 mx-0 px-0 mt-4 mb-4">
-      <div class="col-6 order-sm-last">
-        <button class="hamburger" type="button" @click="menuOpen = !menuOpen">
-          <i class="bi bi-list" style="font-size: 1.3rem; color: #5f4338" />
-        </button>
-      </div>
+        <!--Loggan-->
+        <div class="col-4 col-sm-6 text-center">
+          <RouterLink to="/"><h1>Webshop</h1></RouterLink>
+        </div>
+        <!--Header: ikonerna till höger-->
 
-      <!--Header: ikonerna till höger-->
-
-      <div class="col-6 nav-icons order-sm-2">
-        <i
-          @click="hideMenuOnClick"
-          class="bi bi-search"
-          style="font-size: 1.3rem; color: #5f4338"
-        />
-        <RouterLink to="/cart"
-          ><i
-            class="bi bi-bag-dash"
+        <div class="col-6 nav-icons order-sm-2">
+          <i
+            @click="hideMenuOnClick"
+            class="bi bi-search"
             style="font-size: 1.3rem; color: #5f4338"
           />
-          <span v-if="cart.length > 0" style="color: black">
-            {{ cart.length }}</span
-          >
-          <!-- Ovanstående span tillagd av Sandra för att lägga till antal varor i cart -->
-        </RouterLink>
-        <i class="bi bi-heart" style="font-size: 1.3rem; color: #5f4338" />
-        <RouterLink to="/Login"
-          ><i class="bi bi-door-open" style="font-size: 1.3rem; color: #5f4338"
-        /></RouterLink>
-      </div>
-
-      <!--Loggan-->
-      <div class="col-12 col-sm-6 text-center order-sm-1">
-        <RouterLink to="/"><h1>Webshop</h1></RouterLink>
-      </div>
-
-      <!--När man trycker på hamburgerikonen-->
-      <div
-        class="dropdown mx-0 px-0 order-sm-3"
-        :class="{ 'dropdown-after': menuOpen }"
-      >
-        <!--Tog bort class "row" från diven ovan. Skriver kommentar ifall nåt skulle bli galet.-->
-        <ul class="navlist">
-          <RouterLink to="/"
-            ><li class="navlistitem" @click="hideMenuOnClick">
-              Home
-            </li></RouterLink
-          >
-
-          <!--Product Gallery-länken-->
-          <li class="navlistitem" @click="miniMenuOpen = !miniMenuOpen">
-            Product Gallery
-            <div
-              class="row nested-dropdown mx-0 px-0"
-              :class="{ 'nested-dropdown-after': miniMenuOpen }"
-            >
-              <ul class="navlist mini-navlist">
-                <RouterLink to="/productgallery"
-                  ><li
-                    @click="this.$store.commit('womanClick'), hideMenuOnClick()"
-                    class="navlistitem"
-                  >
-                    Women
-                  </li></RouterLink
-                >
-                <RouterLink to="/productgallery"
-                  ><li
-                    @click="this.$store.commit('menClick'), hideMenuOnClick()"
-                    class="navlistitem"
-                  >
-                    Men
-                  </li></RouterLink
-                >
-              </ul>
-            </div>
-          </li>
-
-          <!--Cart, About och Contact-->
           <RouterLink to="/cart"
-            ><li class="navlistitem" @click="hideMenuOnClick">
-              Cart
-            </li></RouterLink
-          >
-          <RouterLink to="/about"
-            ><li class="navlistitem" @click="hideMenuOnClick">
-              About
-            </li></RouterLink
-          >
-          <RouterLink to="/contact"
-            ><li class="navlistitem" @click="hideMenuOnClick">
-              Contact
-            </li></RouterLink
-          >
-        </ul>
+            ><i
+              class="bi bi-bag-dash"
+              style="font-size: 1.3rem; color: #5f4338"
+            />
+            <span v-if="cart.length > 0" style="color: black">
+              {{ cart.length }}</span
+            >
+            <!-- Ovanstående span tillagd av Sandra för att lägga till antal varor i cart -->
+          </RouterLink>
+          <i class="bi bi-heart" style="font-size: 1.3rem; color: #5f4338" />
+          <RouterLink to="/Login"
+            ><i
+              class="bi bi-door-open"
+              style="font-size: 1.3rem; color: #5f4338"
+          /></RouterLink>
+        </div>
+
+        <!--När man trycker på hamburgerikonen-->
+        <div
+          class="dropdown mx-0 px-0 order-sm-3"
+          :class="{ 'dropdown-after': menuOpen }"
+        >
+          <!--Tog bort class "row" från diven ovan. Skriver kommentar ifall nåt skulle bli galet.-->
+          <ul class="navlist">
+            <RouterLink to="/"
+              ><li class="navlistitem" @click="hideMenuOnClick">
+                Home
+              </li></RouterLink
+            >
+
+            <!--Product Gallery-länken-->
+            <li class="navlistitem" @click="miniMenuOpen = !miniMenuOpen">
+              Product Gallery
+              <div
+                class="row nested-dropdown mx-0 px-0"
+                :class="{ 'nested-dropdown-after': miniMenuOpen }"
+              >
+                <ul class="navlist mini-navlist">
+                  <RouterLink to="/productgallery"
+                    ><li
+                      @click="
+                        this.$store.commit('womanClick'), hideMenuOnClick()
+                      "
+                      class="navlistitem"
+                    >
+                      Women
+                    </li></RouterLink
+                  >
+                  <RouterLink to="/productgallery"
+                    ><li
+                      @click="this.$store.commit('menClick'), hideMenuOnClick()"
+                      class="navlistitem"
+                    >
+                      Men
+                    </li></RouterLink
+                  >
+                </ul>
+              </div>
+            </li>
+
+            <!--Cart, About och Contact-->
+            <RouterLink to="/cart"
+              ><li class="navlistitem" @click="hideMenuOnClick">
+                Cart
+              </li></RouterLink
+            >
+            <RouterLink to="/about"
+              ><li class="navlistitem" @click="hideMenuOnClick">
+                About
+              </li></RouterLink
+            >
+            <RouterLink to="/contact"
+              ><li class="navlistitem" @click="hideMenuOnClick">
+                Contact
+              </li></RouterLink
+            >
+          </ul>
+        </div>
       </div>
     </div>
   </div>

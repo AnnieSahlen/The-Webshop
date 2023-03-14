@@ -15,6 +15,7 @@ const mutations = {
         counter: product.counter
       })
     },
+
     setSize(state, size) {
       state.size = size
     },
@@ -39,6 +40,7 @@ const mutations = {
     removeItemFromCart(state, product) {
       state.cart.splice(product.index, 1)
     },
+
     total(state) {
       state.total = Object.values(this.state.cart).reduce(
         (accumulator, value) => accumulator + value.price,
@@ -46,15 +48,20 @@ const mutations = {
       )
     },
 
-    changeEmail(state, x) {
-      state.mail = x
-    },
-
+    // Ovan tillagt av Sandra
     // Funktionen använder Object.values() för att hämta en array av alla värden (alltså objekt) som finns i cart-objektet. Sedan använder den reduce() metoden på arrayen för att summera priset av varje objekt i varukorgen.
 
     // reduce() metoden tar två argument: en reduceringsfunktion och en startvärde för ackumulatorn. I det här fallet används en anonym funktion som tar två parametrar: accumulator (som är ackumulatorn) och value (som är det nuvarande objektet i iterationen). Funktionen lägger sedan till priset på det nuvarande objektet till ackumulatorn och returnerar det uppdaterade värdet.
 
     // Till slut returnerar total() funktionen det totala priset som beräknats med hjälp av reduce() metoden.
+
+    changeEmail(state, x) {
+      state.mail = x
+    },
+
+    refresh(state) {
+      state.cart = []
+    },
 
     womanClick(state) {
       state.fetchUrl =
