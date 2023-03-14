@@ -16,6 +16,8 @@
 </style>
 
 <script>
+  // import { mapState } from 'vuex'
+
   export default {
     created() {
       this.$watch(
@@ -43,12 +45,17 @@
           console.log(value)
         }
       }
+      // ...mapState(['favorites'])
     },
     emits: ['update-size'],
     methods: {
       onUpdateSize() {
         this.$store.commit('setSize', this.value)
       }
+      // addToFavorites(item) {
+      //   this.$store.commit('toggleFavorite', item),
+      //     console.log('Added to favorites!')
+      // }
     },
     props: {
       title: {
@@ -181,6 +188,26 @@
             <!-- </form> -->
             <!-- plats för error meddelanden -->
             <div>{{}}</div>
+
+            <!--Add to Favorites-button-->
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modall"
+              @click="
+                this.$store.commit('addToFavorites', {
+                  title: this.title,
+                  price: this.price,
+                  image: this.image,
+                  size: this.size
+                })
+              "
+            >
+              Add to Favorites
+            </button>
+            <!-- </div>  -->
+
+            <!-- @click="this.$store.commit('addToFavorites(item)')" -->
 
             <!-- <RouterLink to="/cart"><li class="navlistitem">Cart</li></RouterLink> -->
           </div>

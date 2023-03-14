@@ -17,6 +17,18 @@ const mutations = {
         counter: product.counter
       })
     },
+    addToFavorites(state, product) {
+      state.favorites.push({
+        title: product.title,
+        price: product.price,
+        image: product.image,
+        size: product.size
+      })
+      console.log('Halåe')
+    },
+    removeItemFromFavorites(state, product) {
+      state.favorites.splice(product.index, 1)
+    },
 
     setSize(state, size) {
       state.size = size
@@ -108,10 +120,9 @@ const mutations = {
     value: '',
     size: '',
     mail: '',
-
+    favorites: [],
     users: users ? JSON.parse(users) : [],
     user: user ? JSON.parse(user) : {},
-
     counter: null,
     quantity: 1
   }
