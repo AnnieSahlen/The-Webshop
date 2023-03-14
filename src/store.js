@@ -14,6 +14,18 @@ const mutations = {
         size: product.size
       })
     },
+    addToFavorites(state, product) {
+      state.favorites.push({
+        title: product.title,
+        price: product.price,
+        image: product.image,
+        size: product.size
+      })
+      console.log('Halåe')
+    },
+    removeItemFromFavorites(state, product) {
+      state.favorites.splice(product.index, 1)
+    },
     setSize(state, size) {
       state.size = size
     },
@@ -76,7 +88,8 @@ const mutations = {
     email: '',
     value: '',
     size: '',
-    mail: ''
+    mail: '',
+    favorites: []
   }
 
 export default createStore({ mutations, state, strict: true })

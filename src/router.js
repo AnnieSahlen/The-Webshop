@@ -9,10 +9,12 @@ import LoginView from './views/LoginView.vue'
 import RegisterView from './views/RegisterView.vue'
 import PayView from './views/PayView.vue'
 import ConfirmationView from './views/ConfirmationView.vue'
+import FavoritesView from './views/FavoritesView.vue'
 
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
+    { component: FavoritesView, path: '/favorites' },
     {
       component: ConfirmationView,
       path: '/confirmation'
