@@ -24,6 +24,7 @@
   main,
   header {
     max-width: 900px;
+    /* margin: 175px auto 0px auto; */
     margin: 0 auto;
   }
 </style>

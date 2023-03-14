@@ -13,7 +13,8 @@ const mutations = {
         title: product.title,
         price: product.price,
         image: product.image,
-        size: product.size
+        size: product.size,
+        counter: product.counter
       })
     },
 
@@ -107,8 +108,12 @@ const mutations = {
     value: '',
     size: '',
     mail: '',
+
     users: users ? JSON.parse(users) : [],
-    user: user ? JSON.parse(user) : {}
+    user: user ? JSON.parse(user) : {},
+
+    counter: null,
+    quantity: 1
   }
 
 //Det som händer ovanför med users är typ en if-sats. Om den hittar users från localstorage så sätts users(state)
