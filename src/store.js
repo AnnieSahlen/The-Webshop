@@ -33,7 +33,9 @@ const mutations = {
     setSize(state, size) {
       state.size = size
     },
-
+    removeItemFromCart(state, product) {
+      state.cart.splice(product.index, 1)
+    },
     total(state) {
       state.total = Object.values(this.state.cart).reduce(
         (accumulator, value) => accumulator + value.price,
