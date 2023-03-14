@@ -11,7 +11,8 @@ const mutations = {
         title: product.title,
         price: product.price,
         image: product.image,
-        size: product.size
+        size: product.size,
+        counter: product.counter
       })
     },
     setSize(state, size) {
@@ -76,7 +77,9 @@ const mutations = {
     email: '',
     value: '',
     size: '',
-    mail: ''
+    mail: '',
+    counter: null,
+    quantity: 1
   }
 
 export default createStore({ mutations, state, strict: true })
