@@ -2,6 +2,7 @@
   // import HamburgerMenu from './HamburgerMenu.vue'
 
   export default {
+    // components: { HamburgerMenu },
     data: function () {
       return {
         menuOpen: false,
@@ -143,19 +144,18 @@
           class="bi bi-search"
           style="font-size: 1.3rem; color: #5f4338"
         />
-        <RouterLink to="/cart"
-          ><i
-            class="bi bi-bag-dash"
-            style="font-size: 1.3rem; color: #5f4338"
-          />
+        <RouterLink to="/cart">
+          <i class="bi bi-bag-dash" style="font-size: 1.3rem; color: #5f4338" />
           <span v-if="cart.length > 0" style="color: black">
             {{ cart.length }}</span
           >
           <!-- Ovanstående span tillagd av Sandra för att lägga till antal varor i cart -->
         </RouterLink>
-        <RouterLink to="/favorites"
-          ><i class="bi bi-heart" style="font-size: 1.3rem; color: #5f4338"
-        /></RouterLink>
+
+        <RouterLink to="/favorites">
+          <i class="bi bi-heart" style="font-size: 1.3rem; color: #5f4338" />
+        </RouterLink>
+
         <RouterLink to="/Login"
           ><i class="bi bi-door-open" style="font-size: 1.3rem; color: #5f4338"
         /></RouterLink>

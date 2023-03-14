@@ -28,11 +28,13 @@
         { immediate: true }
       )
     },
+
     // data() {
-    //   return {
-    //     value: ''
-    //   }
+    //   // return {
+    //   //   value: ''
+    //   // }
     // },
+
     computed: {
       size: {
         get() {
@@ -75,6 +77,10 @@
       image: {
         type: String,
         required: true
+      },
+      counter: {
+        type: Number,
+        required: true
       }
     }
   }
@@ -109,6 +115,7 @@
         </div>
         <div class="modal-footer">
           <div class="container-fluid">
+            <!-- <form action="" @submit.prevent="onSubmit()"> -->
             <div class="row">
               <div class="col-2">€ {{ price }}</div>
 
@@ -155,36 +162,9 @@
                   <h6>{{ $store.state.size }}</h6>
                 </div>
               </div>
-              <!--  boots radio knappar -->
-              <!-- <div>
-                <b-form-group>
-                  <b-form-radio v-model="size" name="boots-radio" value="small"
-                    >Small</b-form-radio
-                  >
-                  <b-form-radio v-model="size" name="boots-radio" value="medium"
-                    >Medium</b-form-radio
-                  >
-                </b-form-group>
-              </div> -->
-              <!-- boooots -->
-              <!-- Choose amount -->
-              <div class="dropdown col-4">
-                <button
-                  class="btn btn-secondary btn-sm dropdown-toggle"
-                  type="button"
-                  id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Amount
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item">1</a></li>
-                  <li><a class="dropdown-item">2</a></li>
-                  <li><a class="dropdown-item">3</a></li>
-                </ul>
-              </div>
-
+              <!-- Test quantity section -->
+              <div class="col-4"><QuantitySection /></div>
+              <!-- end of Test quantity section -->
               <!-- Add to chart button -->
               <button
                 type="button"
@@ -195,35 +175,41 @@
                     title: this.title,
                     price: this.price,
                     image: this.image,
-                    size: this.size
+                    size: this.size,
+                    counter: this.counter
+                    // quantity: 1
                   })
                 "
+                :disabled="$store.state.size === undefined"
               >
                 Add to Cart
               </button>
-
-              <!--Add to Favorites-button-->
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-toggle="modall"
-                @click="
-                  this.$store.commit('addToFavorites', {
-                    title: this.title,
-                    price: this.price,
-                    image: this.image,
-                    size: this.size
-                  })
-                "
-              >
-                Add to Favorites
-              </button>
-              <!-- </div>  -->
-
-              <!-- @click="this.$store.commit('addToFavorites(item)')" -->
-
-              <!-- <RouterLink to="/cart"><li class="navlistitem">Cart</li></RouterLink> -->
             </div>
+            <!-- </form> -->
+            <!-- plats för error meddelanden -->
+            <div>{{}}</div>
+
+            <!--Add to Favorites-button-->
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modall"
+              @click="
+                this.$store.commit('addToFavorites', {
+                  title: this.title,
+                  price: this.price,
+                  image: this.image,
+                  size: this.size
+                })
+              "
+            >
+              Add to Favorites
+            </button>
+            <!-- </div>  -->
+
+            <!-- @click="this.$store.commit('addToFavorites(item)')" -->
+
+            <!-- <RouterLink to="/cart"><li class="navlistitem">Cart</li></RouterLink> -->
           </div>
         </div>
       </div>

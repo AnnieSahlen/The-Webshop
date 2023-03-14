@@ -9,6 +9,7 @@
             class="form-control"
             id="Name"
             placeholder="Name"
+            v-model="name"
             required
             aria-describedby="emailHelp"
           />
@@ -18,6 +19,7 @@
             type="text"
             class="form-control"
             id="lastName"
+            v-model="u_name"
             placeholder="Username"
             required
             aria-describedby="emailHelp"
@@ -45,9 +47,19 @@
           />
         </div>
 
-        <router-link class="btn btn-secondary" to="/register"
-          >Create Account</router-link
+        <button
+          class="btn btn-secondary"
+          @click="
+            this.$store.commit('createUser', {
+              name: name,
+              user_name: u_name,
+              email: email,
+              password: password
+            })
+          "
         >
+          Create Account
+        </button>
       </div>
     </div>
   </div>

@@ -1,8 +1,5 @@
 <script>
   export default {
-    // data() {
-    //   return { totalamount: 0 }
-    // },
     computed: {
       cart() {
         return this.$store.state.cart
@@ -37,14 +34,16 @@
               <div class="col-2">
                 <img style="height: 50px" :src="product.image" alt="" />
               </div>
+              <!-- insert amout here for desktop /Flutra -->
+              <div class="col-1">x st{{ product.quantity }}</div>
               <div class="col-1">{{ product.size }}</div>
-              <div class="col-6">{{ product.title }}</div>
+              <div class="col-5">{{ product.title }}</div>
               <div class="col-1">
                 {{ 'Price:' + ' ' + '£' + product.price }}
               </div>
-              <div class="col-sm-2 col-lg-1">
+              <div class="col-sm-1 col-lg-1">
                 <button
-                  class="btn btn-secondary btn-sm"
+                  class="btn btn-danger btn-sm"
                   @click="
                     this.$store.commit('removeItemFromCart', {
                       title: product.title,
@@ -54,11 +53,12 @@
                     })
                   "
                 >
-                  Remove
+                  <i class="bi bi-trash3-fill" />
+                  <!-- Remove -->
                 </button>
+                <!-- insert amout here for desktop /Flutra -->
+                <div class="col-1">x st{{ product.quantity }}</div>
               </div>
-              <!-- insert amout here for desktop /Flutra -->
-              <div class="col-1">Amout</div>
             </div>
           </li>
         </ol>
@@ -84,7 +84,7 @@
           <h4>Total amount:</h4>
         </div>
         <div class="col-3">
-          <h4>{{ total }}</h4>
+          <h4>£{{ total }}</h4>
         </div>
         <div class="col-3" />
       </div>
@@ -95,10 +95,15 @@
             <button
               v-if="cart.length > 0"
               type="button"
-              class="btn btn-success"
+              class="btn btn-primary"
               style="margin: 30px"
             >
               To payment
+            </button>
+          </RouterLink>
+          <RouterLink to="/productgallery">
+            <button type="button" class="btn btn-primary" style="margin: 30px">
+              Keep shopping
             </button>
           </RouterLink>
         </div>
@@ -114,5 +119,9 @@
 
   #row {
     padding-bottom: 30px;
+  }
+
+  .btn {
+    background-color: primary;
   }
 </style>
