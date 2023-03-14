@@ -2,7 +2,7 @@
   export default {
     data() {
       return {
-        counter: 1
+        // counter: 1
         // quntity: 1
       }
     },
