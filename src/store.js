@@ -13,8 +13,8 @@ const mutations = {
         title: product.title,
         price: product.price,
         image: product.image,
-        size: product.size,
-        counter: product.counter
+        size: product.size
+        // counter: product.counter
       })
     },
     addToFavorites(state, product) {
@@ -125,7 +125,7 @@ const mutations = {
     favorites: [],
     users: users ? JSON.parse(users) : [],
     user: user ? JSON.parse(user) : {},
-    counter: null,
+    // counter: null,
     quantity: 1
   }
 

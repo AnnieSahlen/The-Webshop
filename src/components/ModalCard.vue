@@ -77,11 +77,11 @@
       image: {
         type: String,
         required: true
-      },
-      counter: {
-        type: Number,
-        required: true
       }
+      // counter: {
+      //   type: Number,
+      //   required: true
+      // }
     }
   }
 </script>
@@ -163,7 +163,7 @@
                 </div>
               </div>
               <!-- Test quantity section -->
-              <div class="col-4"><QuantitySection /></div>
+              <!-- <div class="col-4"><QuantitySection /></div> -->
               <!-- end of Test quantity section -->
               <!-- Add to chart button -->
               <button
@@ -175,8 +175,8 @@
                     title: this.title,
                     price: this.price,
                     image: this.image,
-                    size: this.size,
-                    counter: this.counter
+                    size: this.size
+                    // counter: this.counter
                     // quantity: 1
                   })
                 "
