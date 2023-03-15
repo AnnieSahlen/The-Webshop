@@ -163,7 +163,7 @@
                 </div>
               </div>
               <!-- Test quantity section -->
-              <div class="col-4"><QuantitySection /></div>
+              <!-- <div class="col-4"><QuantitySection /></div> -->
               <!-- end of Test quantity section -->
               <!-- Add to chart button -->
               <button
