@@ -7,7 +7,6 @@
       }
     },
 
-    // varför fungerar inte ovan metod, x is undefined?
     data() {
       return { x: '' }
     }
@@ -87,6 +86,8 @@
         </p>
         <p style="font-weight: bold">Total: € {{ $store.state.total }}</p>
       </div>
+
+      <!-- Form for contact -->
       <div class="col-sm-12" id="contactinformation">
         <h4>Contactinformation</h4>
         <form action="">
@@ -151,7 +152,6 @@
             value="Paypal"
           />
           <label class="col-3 text" for="paypal"> Paypal</label>
-          <!--  -->
 
           <input
             class="col-1"
@@ -161,7 +161,7 @@
             value="Creditcard"
           />
           <label class="col-3 text" for="creditcard"> Creditcard</label>
-          <!--  -->
+
           <input
             class="col-1"
             type="radio"
@@ -170,7 +170,6 @@
             value="Invoice"
           />
           <label class="col-3 text" for="invoice"> Invoice</label>
-          <!-- <i class="bi bi-receipt" /> -->
         </form>
       </div>
     </div>

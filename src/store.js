@@ -4,8 +4,8 @@ import { createStore } from 'vuex'
 getters: {
 }
 */
-const users = window.localStorage.getItem('users')
-const user = window.localStorage.getItem('user')
+// const users = window.localStorage.getItem('users')
+// const user = window.localStorage.getItem('user')
 
 const mutations = {
     addItemToCart(state, product) {
@@ -17,6 +17,7 @@ const mutations = {
         // counter: product.counter
       })
     },
+
     addToFavorites(state, product) {
       state.favorites.push({
         title: product.title,
@@ -26,6 +27,7 @@ const mutations = {
       })
       console.log('Halåe')
     },
+
     removeItemFromFavorites(state, product) {
       state.favorites.splice(product.index, 1)
     },
@@ -33,22 +35,17 @@ const mutations = {
     setSize(state, size) {
       state.size = size
     },
+
     removeItemFromCart(state, product) {
       state.cart.splice(product.index, 1)
     },
+
     total(state) {
       state.total = Object.values(this.state.cart).reduce(
         (accumulator, value) => Math.round(accumulator + value.price),
         0
       )
     },
-
-    // Ovan tillagt av Sandra
-    // Funktionen använder Object.values() för att hämta en array av alla värden (alltså objekt) som finns i cart-objektet. Sedan använder den reduce() metoden på arrayen för att summera priset av varje objekt i varukorgen.
-
-    // reduce() metoden tar två argument: en reduceringsfunktion och en startvärde för ackumulatorn. I det här fallet används en anonym funktion som tar två parametrar: accumulator (som är ackumulatorn) och value (som är det nuvarande objektet i iterationen). Funktionen lägger sedan till priset på det nuvarande objektet till ackumulatorn och returnerar det uppdaterade värdet.
-
-    // Till slut returnerar total() funktionen det totala priset som beräknats med hjälp av reduce() metoden.
 
     changeEmail(state, x) {
       state.mail = x
@@ -68,11 +65,13 @@ const mutations = {
 
       state.users.push(user)
 
-      this.commit('saveUsers')
+      /* this.commit('saveUsers')*/
     },
 
     logIn(state, obj) {
       const { email, password } = obj
+      /*console.log(email)*/
+
       const user = state.users.filter((u) => u.email === email)[0]
 
       if (user) {
@@ -81,12 +80,8 @@ const mutations = {
           this.commit('saveUser')
           document.location.href = '/'
         }
-      } else {
-        // Kanske ska skriva något för att visa felmeddelande att ingen användare med den
-        // epostadressen hittades?
       }
     },
-
     logOut(state) {
       state.user = {}
       window.localStorage.removeItem('user')
@@ -105,10 +100,12 @@ const mutations = {
       state.fetchUrl =
         "https://fakestoreapi.com/products/category/women's%20clothing"
     },
+
     menClick(state) {
       state.fetchUrl =
         "https://fakestoreapi.com/products/category/men's%20clothing"
     },
+
     jeweleryClick(state) {
       state.fetchUrl = 'https://fakestoreapi.com/products/category/jewelery'
     }
@@ -123,8 +120,15 @@ const mutations = {
     size: '',
     mail: '',
     favorites: [],
-    users: users ? JSON.parse(users) : [],
-    user: user ? JSON.parse(user) : {},
+    users: window.localStorage.getItem('users')
+      ? JSON.parse(window.localStorage.getItem('users'))
+      : [], //users ? JSON.parse(users) : [],
+    user: window.localStorage.getItem('user')
+      ? JSON.parse(window.localStorage.getItem('user'))
+      : [], //user ? JSON.parse(user) : {},
+    counter: null,
+    //users: users ? JSON.parse(users) : [],
+    //user: user ? JSON.parse(user) : {},
     // counter: null,
     quantity: 1
   }

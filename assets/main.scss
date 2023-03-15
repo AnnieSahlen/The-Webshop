@@ -1,4 +1,3 @@
-
 $theme-colors: (
   'primary': #e9dbbc,
   'secondary': #4f4f52,
@@ -11,11 +10,9 @@ $theme-colors: (
 );
 
 
-
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
 
+// lägg till rad 26 om det blir fel i firefox
+@import "bootstrap";
 
-
-// lägg till om det blir fel i firefox
-// @import "bootstrap";
-@import "bootstrap/scss/bootstrap"
+@import 'bootstrap/scss/bootstrap';

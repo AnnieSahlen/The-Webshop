@@ -12,6 +12,20 @@
   }
 </script>
 
+<style scoped>
+  body {
+    margin: 0;
+  }
+
+  #row {
+    padding-bottom: 30px;
+  }
+
+  .btn {
+    background-color: primary;
+  }
+</style>
+
 <template>
   <div class="container-fluid">
     <!-- Rad 1 your products -->
@@ -66,7 +80,6 @@
       <!-- Rad 4 total amount -->
       <div class="col-12" style="text-align: center" v-if="cart.length === 0">
         <p>Your cart is empty.</p>
-
         <routerLink to="/#">
           <button
             type="button"
@@ -85,7 +98,6 @@
         </div>
         <div class="col-3">
           <h4>€ {{ total }}</h4>
-          <!-- Fixa avrundning med floor -->
         </div>
         <div class="col-3" />
       </div>
@@ -117,20 +129,3 @@
     </div>
   </div>
 </template>
-
-<style scoped>
-  body {
-    margin: 0;
-  }
-
-  #row {
-    padding-bottom: 30px;
-  }
-
-  .btn {
-    background-color: primary;
-  }
-  .bi bi-trash3-fill {
-    margin-top: -20px;
-  }
-</style>

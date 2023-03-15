@@ -7,6 +7,7 @@
           <p class="card-text">
             If you want help with our order don't hesitate to contact us.
           </p>
+
           <a href="#" class="btn btn-primary" style="background-color: #e9dbbc"
             >Visit support page</a
           >
@@ -36,5 +37,6 @@
     text-align: center;
     padding-left: 5.5rem;
     padding-bottom: 2rem;
+    padding-top: 5rem;
   }
 </style>

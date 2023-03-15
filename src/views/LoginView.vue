@@ -14,9 +14,9 @@
             aria-describedby="emailHelp"
           />
 
-          <div id="emailHelp" class="form-text">
+          <!--<div id="emailHelp" class="form-text">
             We'll never share your email with anyone else.
-          </div>
+          </div>-->
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
@@ -40,23 +40,37 @@
           Login
         </button>
 
-        <router-link class="btn btn-primary" to="/register"
-          >Create Account</router-link
-        >
+        <div id="emailHelp" class="form-text">
+          Do you not have an account?
+          <div class="createaccount">
+            <router-link to="/register">Create Account</router-link>
+          </div>
+        </div>
+        <div class="col-md-3" />
       </div>
-
-      <div class="col-md-3" />
     </div>
   </div>
 </template>
 
 <script>
-  export default {}
+  export default {
+    data() {
+      return { password: '', email: '' }
+    }
+  }
 </script>
 
 <style scoped>
   .container {
     padding-top: 5rem;
     padding-bottom: 10rem;
+  }
+  .createaccount a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+  }
+  #emailHelp {
+    padding-top: 2rem;
   }
 </style>
