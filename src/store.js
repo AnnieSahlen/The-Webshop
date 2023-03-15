@@ -4,8 +4,8 @@ import { createStore } from 'vuex'
 getters: {
 }
 */
-const users = window.localStorage.getItem('users')
-const user = window.localStorage.getItem('user')
+// const users = window.localStorage.getItem('users')
+// const user = window.localStorage.getItem('user')
 
 const mutations = {
     addItemToCart(state, product) {
@@ -70,6 +70,8 @@ const mutations = {
 
     logIn(state, obj) {
       const { email, password } = obj
+      console.log(email)
+
       const user = state.users.filter((u) => u.email === email)[0]
 
       if (user) {
@@ -122,8 +124,15 @@ const mutations = {
     size: '',
     mail: '',
     favorites: [],
-    users: users ? JSON.parse(users) : [],
-    user: user ? JSON.parse(user) : {},
+    users: window.localStorage.getItem('users')
+      ? JSON.parse(window.localStorage.getItem('users'))
+      : [], //users ? JSON.parse(users) : [],
+    user: window.localStorage.getItem('user')
+      ? JSON.parse(window.localStorage.getItem('user'))
+      : [], //user ? JSON.parse(user) : {},
+    counter: null,
+    //users: users ? JSON.parse(users) : [],
+    //user: user ? JSON.parse(user) : {},
     // counter: null,
     quantity: 1
   }
