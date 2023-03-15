@@ -1,11 +1,11 @@
 <script>
   export default {
-    // methods: {
-    //   combineEvents: function () {
-    //     this.$store.commit('changeEmail', x)
-    //     this.$store.commit('refresh')
-    //   }
-    // },
+    methods: {
+      combineEvents: function () {
+        this.$store.commit('changeEmail', this.x)
+        this.$store.commit('refresh')
+      }
+    },
 
     // varför fungerar inte ovan metod, x is undefined?
     data() {
@@ -181,9 +181,7 @@
         type="button"
         class="btn btn-primary"
         style="margin: 30px"
-        @click="
-          this.$store.commit('changeEmail', x), this.$store.commit('refresh')
-        "
+        @click="combineEvents"
       >
         Confirmation
       </button>

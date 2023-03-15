@@ -38,7 +38,7 @@ const mutations = {
     },
     total(state) {
       state.total = Object.values(this.state.cart).reduce(
-        (accumulator, value) => accumulator + value.price,
+        (accumulator, value) => Math.round(accumulator + value.price),
         0
       )
     },

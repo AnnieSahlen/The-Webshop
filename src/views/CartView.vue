@@ -85,6 +85,7 @@
         </div>
         <div class="col-3">
           <h4>£{{ total }}</h4>
+          <!-- Fixa avrundning med floor -->
         </div>
         <div class="col-3" />
       </div>
@@ -102,7 +103,12 @@
             </button>
           </RouterLink>
           <RouterLink to="/productgallery">
-            <button type="button" class="btn btn-primary" style="margin: 30px">
+            <button
+              v-if="cart.length > 0"
+              type="button"
+              class="btn btn-primary"
+              style="margin: 30px"
+            >
               Keep shopping
             </button>
           </RouterLink>
