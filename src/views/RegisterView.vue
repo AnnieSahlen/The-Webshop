@@ -48,7 +48,7 @@
         </div>
 
         <button
-          class="btn btn-secondary"
+          class="btn btn-primary"
           @click="
             this.$store.commit('createUser', {
               name: name,

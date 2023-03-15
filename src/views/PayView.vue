@@ -83,9 +83,9 @@
       <div class="col-sm-12">
         <p>Summary of your order:</p>
         <p :key="index" v-for="(product, index) in $store.state.cart">
-          {{ product.title }} £{{ product.price }}
+          {{ product.title }} € {{ product.price }}
         </p>
-        <p style="font-weight: bold">Total: £{{ $store.state.total }}</p>
+        <p style="font-weight: bold">Total: € {{ $store.state.total }}</p>
       </div>
       <div class="col-sm-12" id="contactinformation">
         <h4>Contactinformation</h4>
@@ -139,7 +139,7 @@
     <div class="row">
       <div class="col-sm-12">
         <h4>Payment</h4>
-        <p>You total amount is: £{{ $store.state.total }}.</p>
+        <p>You total amount is: € {{ $store.state.total }}.</p>
         <p>Please choose desired payment option.</p>
 
         <form class="formpaymentdeliver col-12">

@@ -35,11 +35,11 @@
                 <img style="height: 50px" :src="product.image" alt="" />
               </div>
               <!-- insert amout here for desktop /Flutra -->
-              <div class="col-1">x st{{ product.quantity }}</div>
+              <!-- <div class="col-1">x st{{ product.quantity }}</div> -->
               <div class="col-1">{{ product.size }}</div>
-              <div class="col-5">{{ product.title }}</div>
+              <div class="col-6 lh-sm">{{ product.title }}</div>
               <div class="col-1">
-                {{ 'Price:' + ' ' + '£' + product.price }}
+                {{ 'Price:' + ' ' + '€' + product.price }}
               </div>
               <div class="col-sm-1 col-lg-1">
                 <button
@@ -57,7 +57,7 @@
                   <!-- Remove -->
                 </button>
                 <!-- insert amout here for desktop /Flutra -->
-                <div class="col-1">x st{{ product.quantity }}</div>
+                <!-- <div class="col-1">x st{{ product.quantity }}</div> -->
               </div>
             </div>
           </li>
@@ -70,7 +70,7 @@
         <routerLink to="/#">
           <button
             type="button"
-            class="btn btn-success"
+            class="btn btn-primary"
             style="margin: 30px, display: flex;"
           >
             To products
@@ -84,7 +84,7 @@
           <h4>Total amount:</h4>
         </div>
         <div class="col-3">
-          <h4>£{{ total }}</h4>
+          <h4>€ {{ total }}</h4>
           <!-- Fixa avrundning med floor -->
         </div>
         <div class="col-3" />
@@ -129,5 +129,8 @@
 
   .btn {
     background-color: primary;
+  }
+  .bi bi-trash3-fill {
+    margin-top: -20px;
   }
 </style>

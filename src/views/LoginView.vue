@@ -29,7 +29,7 @@
           />
         </div>
         <button
-          class="btn btn-secondary"
+          class="btn btn-primary"
           @click="
             this.$store.commit('logIn', {
               email: email,
@@ -40,7 +40,7 @@
           Login
         </button>
 
-        <router-link class="btn btn-secondary" to="/register"
+        <router-link class="btn btn-primary" to="/register"
           >Create Account</router-link
         >
       </div>
