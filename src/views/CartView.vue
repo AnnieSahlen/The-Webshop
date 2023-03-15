@@ -12,6 +12,20 @@
   }
 </script>
 
+<style scoped>
+  body {
+    margin: 0;
+  }
+
+  #row {
+    padding-bottom: 30px;
+  }
+
+  .btn {
+    background-color: primary;
+  }
+</style>
+
 <template>
   <div class="container-fluid">
     <!-- Rad 1 your products -->
@@ -35,11 +49,11 @@
                 <img style="height: 50px" :src="product.image" alt="" />
               </div>
               <!-- insert amout here for desktop /Flutra -->
-              <div class="col-1">x st{{ product.quantity }}</div>
+              <!-- <div class="col-1">x st{{ product.quantity }}</div> -->
               <div class="col-1">{{ product.size }}</div>
-              <div class="col-5">{{ product.title }}</div>
+              <div class="col-6 lh-sm">{{ product.title }}</div>
               <div class="col-1">
-                {{ 'Price:' + ' ' + '£' + product.price }}
+                {{ 'Price:' + ' ' + '€' + product.price }}
               </div>
               <div class="col-sm-1 col-lg-1">
                 <button
@@ -57,7 +71,7 @@
                   <!-- Remove -->
                 </button>
                 <!-- insert amout here for desktop /Flutra -->
-                <div class="col-1">x st{{ product.quantity }}</div>
+                <!-- <div class="col-1">x st{{ product.quantity }}</div> -->
               </div>
             </div>
           </li>
@@ -66,11 +80,10 @@
       <!-- Rad 4 total amount -->
       <div class="col-12" style="text-align: center" v-if="cart.length === 0">
         <p>Your cart is empty.</p>
-
         <routerLink to="/#">
           <button
             type="button"
-            class="btn btn-success"
+            class="btn btn-primary"
             style="margin: 30px, display: flex;"
           >
             To products
@@ -84,7 +97,7 @@
           <h4>Total amount:</h4>
         </div>
         <div class="col-3">
-          <h4>£{{ total }}</h4>
+          <h4>€ {{ total }}</h4>
         </div>
         <div class="col-3" />
       </div>
@@ -102,7 +115,12 @@
             </button>
           </RouterLink>
           <RouterLink to="/productgallery">
-            <button type="button" class="btn btn-primary" style="margin: 30px">
+            <button
+              v-if="cart.length > 0"
+              type="button"
+              class="btn btn-primary"
+              style="margin: 30px"
+            >
               Keep shopping
             </button>
           </RouterLink>
@@ -111,17 +129,3 @@
     </div>
   </div>
 </template>
-
-<style scoped>
-  body {
-    margin: 0;
-  }
-
-  #row {
-    padding-bottom: 30px;
-  }
-
-  .btn {
-    background-color: primary;
-  }
-</style>

@@ -168,9 +168,6 @@
                 <label class="form-check-label" for="flexRadioDefault1">
                   L
                 </label>
-                <div>
-                  <h6>{{ $store.state.size }}</h6>
-                </div>
               </div>
               <!-- Test quantity section -->
               <!-- <div class="col-4"><QuantitySection /></div> -->

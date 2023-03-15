@@ -76,30 +76,47 @@
     text-align: center;
     margin-bottom: 20px;
   }
+  .b-dropdow {
+    width: 100px;
+  }
   .card:hover {
     transform: scale(1.1);
+  }
+  .dropdown {
+    text-align: right;
+    margin-right: 50px;
+    margin-bottom: 30px;
   }
 </style>
 <template>
   <!-- drop down filter -->
-  <div id="button">
-    <b-dropdown
-      id="sort"
-      text="Sort"
-      class="m-md-2"
-      size="sm"
-      variant="primary"
+  <div class="dropdown">
+    <button
+      class="btn btn-primary btn-sm dropdown-toggle"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
     >
-      <b-dropdown-item @click="order = 'low'"
-        >Lowest price first</b-dropdown-item
-      >
-      <b-dropdown-item @click="order = 'high'"
-        >Higest price first</b-dropdown-item
-      >
-      <b-dropdown-item @click="order = 'alpha'"
-        >Alphabetic order</b-dropdown-item
-      >
-    </b-dropdown>
+      Sort Products
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li>
+        <button class="dropdown-item" @click="order = 'low'">
+          Lowest price first
+        </button>
+      </li>
+      <li>
+        <button class="dropdown-item" @click="order = 'high'">
+          Highest price first
+        </button>
+      </li>
+      <li>
+        <button class="dropdown-item" @click="order = 'alpha'">
+          Alphabetic order
+        </button>
+      </li>
+    </ul>
   </div>
 
   <!-- cards, varför går ej col-xs-6???-->
@@ -136,8 +153,5 @@
       </div>
     </div>
   </div>
-  <!-- <ProductGalleryObject />
-  <ProductGalleryObject />
-  <ProductGalleryObject />
-  <ProductGalleryObject /> -->
+  <FashonArticles />
 </template>

@@ -1,13 +1,12 @@
 <script>
   export default {
-    // methods: {
-    //   combineEvents: function () {
-    //     this.$store.commit('changeEmail', x)
-    //     this.$store.commit('refresh')
-    //   }
-    // },
+    methods: {
+      combineEvents: function () {
+        this.$store.commit('changeEmail', this.x)
+        this.$store.commit('refresh')
+      }
+    },
 
-    // varför fungerar inte ovan metod, x is undefined?
     data() {
       return { x: '' }
     }
@@ -83,10 +82,12 @@
       <div class="col-sm-12">
         <p>Summary of your order:</p>
         <p :key="index" v-for="(product, index) in $store.state.cart">
-          {{ product.title }} £{{ product.price }}
+          {{ product.title }} € {{ product.price }}
         </p>
-        <p style="font-weight: bold">Total: £{{ $store.state.total }}</p>
+        <p style="font-weight: bold">Total: € {{ $store.state.total }}</p>
       </div>
+
+      <!-- Form for contact -->
       <div class="col-sm-12" id="contactinformation">
         <h4>Contactinformation</h4>
         <form action="">
@@ -139,7 +140,7 @@
     <div class="row">
       <div class="col-sm-12">
         <h4>Payment</h4>
-        <p>You total amount is: £{{ $store.state.total }}.</p>
+        <p>You total amount is: € {{ $store.state.total }}.</p>
         <p>Please choose desired payment option.</p>
 
         <form class="formpaymentdeliver col-12">
@@ -151,7 +152,6 @@
             value="Paypal"
           />
           <label class="col-3 text" for="paypal"> Paypal</label>
-          <!--  -->
 
           <input
             class="col-1"
@@ -161,7 +161,7 @@
             value="Creditcard"
           />
           <label class="col-3 text" for="creditcard"> Creditcard</label>
-          <!--  -->
+
           <input
             class="col-1"
             type="radio"
@@ -170,7 +170,6 @@
             value="Invoice"
           />
           <label class="col-3 text" for="invoice"> Invoice</label>
-          <!-- <i class="bi bi-receipt" /> -->
         </form>
       </div>
     </div>
@@ -181,9 +180,7 @@
         type="button"
         class="btn btn-primary"
         style="margin: 30px"
-        @click="
-          this.$store.commit('changeEmail', x), this.$store.commit('refresh')
-        "
+        @click="combineEvents"
       >
         Confirmation
       </button>
