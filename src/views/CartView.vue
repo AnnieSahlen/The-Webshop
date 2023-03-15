@@ -70,7 +70,7 @@
         <routerLink to="/#">
           <button
             type="button"
-            class="btn btn-success"
+            class="btn btn-primary"
             style="margin: 30px, display: flex;"
           >
             To products
