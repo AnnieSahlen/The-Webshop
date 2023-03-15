@@ -1,8 +1,5 @@
 <script>
-  // import HamburgerMenu from './HamburgerMenu.vue'
-
   export default {
-    // components: { HamburgerMenu },
     data: function () {
       return {
         menuOpen: false,
@@ -44,14 +41,10 @@
     height: 45px;
     border: none;
     background-color: white;
-    /* border-radius: 4px; */
   }
   .dropdown {
     height: 0px;
     transition: height 0.2s ease;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
     overflow: hidden;
   }
   .dropdown-after {
@@ -60,7 +53,6 @@
     transition: height 0.2s, width 0.2s ease;
     z-index: 10;
     position: absolute;
-    /* border-bottom: 6px solid #a08c5b; */
     top: 100%;
     background-color: white;
   }
@@ -106,7 +98,6 @@
     .navlist {
       display: flex;
       justify-content: space-evenly;
-      /* max-width: 900px; */
     }
     .navlistitem {
       background-color: white;
@@ -115,7 +106,6 @@
     .mini-navlist {
       display: flex;
       flex-direction: column;
-      /* position: absolute; */
     }
     .nested-dropdown,
     .nested-dropdown-after {
@@ -125,8 +115,6 @@
 </style>
 
 <template>
-  <!-- <HamburgerMenu /> -->
-
   <!--Header: hamburgerikonen-->
   <div class="container-fluid mx-0 px-0" style="position: relative">
     <div class="row gy-2 mx-0 px-0 mt-4 mb-4">
@@ -137,7 +125,6 @@
       </div>
 
       <!--Header: ikonerna till höger-->
-
       <div class="col-6 nav-icons order-sm-2">
         <i
           @click="hideMenuOnClick"
@@ -166,6 +153,7 @@
           <i class="bi bi-person" style="font-size: 1.3rem; color: #5f4338" />
         </RouterLink>
       </div>
+
       <!--Loggan-->
       <div class="col-12 col-sm-6 text-center order-sm-1">
         <RouterLink to="/"><h1>Webshop</h1></RouterLink>
@@ -206,6 +194,16 @@
                     class="navlistitem"
                   >
                     Men
+                  </li></RouterLink
+                >
+                <RouterLink to="/productgallery"
+                  ><li
+                    @click="
+                      this.$store.commit('jeweleryClick'), hideMenuOnClick()
+                    "
+                    class="navlistitem"
+                  >
+                    Accessories
                   </li></RouterLink
                 >
               </ul>

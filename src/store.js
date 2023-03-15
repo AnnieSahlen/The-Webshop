@@ -13,18 +13,33 @@ const mutations = {
         title: product.title,
         price: product.price,
         image: product.image,
-        size: product.size,
-        counter: product.counter
+        size: product.size
+        // counter: product.counter
       })
     },
     addToFavorites(state, product) {
+      // let found = false
+      // // if (state.favorites.includes(this.state.product)) {
+      // if (
+      //   this.$store.state.favorites.find((element) => {
+      //     if (element.id === product.id) {
+      //       this.found = true
+      //     }
+      //   })
+      // ) {
+      //   console.log('Already added')
+      //   found = true
+      // }
+      // else {
+      // if (found === false) {
       state.favorites.push({
+        id: product.id,
         title: product.title,
         price: product.price,
         image: product.image,
         size: product.size
       })
-      console.log('Halåe')
+      // }
     },
     removeItemFromFavorites(state, product) {
       state.favorites.splice(product.index, 1)
@@ -125,7 +140,7 @@ const mutations = {
     favorites: [],
     users: users ? JSON.parse(users) : [],
     user: user ? JSON.parse(user) : {},
-    counter: null,
+    // counter: null,
     quantity: 1
   }
 

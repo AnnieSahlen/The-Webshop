@@ -13,13 +13,27 @@
   input[type-radio] {
     margin: 50px;
   }
+  .bi-heart {
+    color: black;
+  }
+  .bi-heart-active {
+    color: red;
+  }
 </style>
 
 <script>
-  // import { mapState } from 'vuex'
-
   export default {
     created() {
+      //if(produkt finns i vuex favoriter)
+      // this.favoriteActive = true;
+      // console.log(this.favoriteActive)
+      this.$store.state.favorites.find((element) => {
+        // console.log(element.id + ' ' + this.productId)
+        if (element.id === this.productId) {
+          this.favoriteActive = true
+        }
+      })
+
       this.$watch(
         () => this.$store.state.value,
         () => {
@@ -29,11 +43,12 @@
       )
     },
 
-    // data() {
-    //   // return {
-    //   //   value: ''
-    //   // }
-    // },
+    data() {
+      return {
+        //           value: ''
+        favoriteActive: false
+      }
+    },
 
     computed: {
       size: {
@@ -45,17 +60,12 @@
           console.log(value)
         }
       }
-      // ...mapState(['favorites'])
     },
     emits: ['update-size'],
     methods: {
       onUpdateSize() {
         this.$store.commit('setSize', this.value)
       }
-      // addToFavorites(item) {
-      //   this.$store.commit('toggleFavorite', item),
-      //     console.log('Added to favorites!')
-      // }
     },
     props: {
       title: {
@@ -77,11 +87,11 @@
       image: {
         type: String,
         required: true
-      },
-      counter: {
-        type: Number,
-        required: true
       }
+      // counter: {
+      //   type: Number,
+      //   required: true
+      // }
     }
   }
 </script>
@@ -163,7 +173,7 @@
                 </div>
               </div>
               <!-- Test quantity section -->
-              <div class="col-4"><QuantitySection /></div>
+              <!-- <div class="col-4"><QuantitySection /></div> -->
               <!-- end of Test quantity section -->
               <!-- Add to chart button -->
               <button
@@ -175,8 +185,8 @@
                     title: this.title,
                     price: this.price,
                     image: this.image,
-                    size: this.size,
-                    counter: this.counter
+                    size: this.size
+                    // counter: this.counter
                     // quantity: 1
                   })
                 "
@@ -190,10 +200,57 @@
             <div>{{}}</div>
 
             <!--Add to Favorites-button-->
-            <button
+            <!-- <i
+              @click="
+                this.$store.commit('addToFavorites', {
+                  title: this.title,
+                  price: this.price,
+                  image: this.image,
+                  size: this.size
+                }),
+                  (favoriteActive = !favoriteActive)
+              "
+              class="bi bi-heart"
+              :class="{ 'bi-heart-active': favoriteActive }"
+              style="font-size: 1.3rem"
+            /> -->
+
+            <!--Experiment buttons-->
+            <i
+              v-if="!favoriteActive"
+              @click="
+                this.$store.commit('addToFavorites', {
+                  id: this.productId,
+                  title: this.title,
+                  price: this.price,
+                  image: this.image,
+                  size: this.size
+                }),
+                  (favoriteActive = !favoriteActive)
+              "
+              class="bi bi-heart"
+              style="font-size: 1.3rem; color: black"
+            />
+            <i
+              v-if="favoriteActive"
+              @click="
+                this.$store.commit('removeItemFromFavorites', {
+                  id: this.productId,
+                  title: this.title,
+                  price: this.price,
+                  image: this.image,
+                  size: this.size
+                }),
+                  (favoriteActive = !favoriteActive)
+              "
+              class="bi bi-heart"
+              style="font-size: 1.3rem; color: red"
+            />
+
+            <!-- <button
               type="button"
               class="btn btn-primary"
-              data-bs-toggle="modall"
+              data-bs-toggle="modal"
               @click="
                 this.$store.commit('addToFavorites', {
                   title: this.title,
@@ -204,7 +261,7 @@
               "
             >
               Add to Favorites
-            </button>
+            </button> -->
             <!-- </div>  -->
 
             <!-- @click="this.$store.commit('addToFavorites(item)')" -->

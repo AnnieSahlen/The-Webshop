@@ -10,13 +10,17 @@
 
 <template>
   <div class="container-fluid">
-    <!-- Rad 1 your favorites -->
+    <!-- Rad 1 Rubrik -->
     <div class="row">
       <div class="col-12" style="text-align: center">
         <h1 style="padding-bottom: 50px">Your favorites</h1>
       </div>
+      <div class="col-12" style="text-align: center">
+        <span v-if="favorites.length < 1" style="padding-bottom: 50px"
+          >No favorites added yet</span
+        >
+      </div>
     </div>
-
     <div>
       <div>
         <ol>
@@ -25,7 +29,7 @@
             :key="index"
             v-for="(product, index) in favorites"
           >
-            <!-- Rad 2 * antal varor -->
+            <!-- Rad 2 favoriter/produkter -->
             <div class="row" id="row">
               <div class="col-2">
                 <img style="height: 50px" :src="product.image" alt="" />
