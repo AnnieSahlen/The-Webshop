@@ -52,7 +52,11 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    data() {
+      return { password: '', email: '' }
+    }
+  }
 </script>
 
 <style scoped>

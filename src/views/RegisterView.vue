@@ -68,5 +68,9 @@
 </template>
 
 <script>
-  export default {}
+  export default {
+    data() {
+      return { password: '', email: '', name: '', u_name: '' }
+    }
+  }
 </script>

@@ -68,12 +68,12 @@ const mutations = {
 
       state.users.push(user)
 
-      this.commit('saveUsers')
+      /* this.commit('saveUsers')*/
     },
 
     logIn(state, obj) {
       const { email, password } = obj
-      console.log(email)
+      /*console.log(email)*/
 
       const user = state.users.filter((u) => u.email === email)[0]
 
@@ -83,12 +83,8 @@ const mutations = {
           this.commit('saveUser')
           document.location.href = '/'
         }
-      } else {
-        // Kanske ska skriva något för att visa felmeddelande att ingen användare med den
-        // epostadressen hittades?
       }
     },
-
     logOut(state) {
       state.user = {}
       window.localStorage.removeItem('user')
