@@ -77,11 +77,11 @@
       image: {
         type: String,
         required: true
-      },
-      counter: {
-        type: Number,
-        required: true
       }
+      // counter: {
+      //   type: Number,
+      //   required: true
+      // }
     }
   }
 </script>
@@ -175,8 +175,8 @@
                     title: this.title,
                     price: this.price,
                     image: this.image,
-                    size: this.size,
-                    counter: this.counter
+                    size: this.size
+                    // counter: this.counter
                     // quantity: 1
                   })
                 "

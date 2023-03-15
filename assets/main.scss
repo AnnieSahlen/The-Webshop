@@ -1,4 +1,3 @@
-
 $theme-colors: (
   'primary': #a08c5b,
   'secondary': #4f4f52,
@@ -10,19 +9,10 @@ $theme-colors: (
   'dark': #2f2f2f
 );
 
-@import 'bootstrap/scss/bootstrap';
-
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
 
-
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins";
-
-$theme-colors: (
-  primary: purple
-);
-
-/* finally, import Bootstrap */
+// lägg till rad 26 om det blir fel i firefox
 @import "bootstrap";
+
+@import 'bootstrap/scss/bootstrap';

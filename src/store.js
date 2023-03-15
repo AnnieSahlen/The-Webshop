@@ -13,8 +13,8 @@ const mutations = {
         title: product.title,
         price: product.price,
         image: product.image,
-        size: product.size,
-        counter: product.counter
+        size: product.size
+        // counter: product.counter
       })
     },
     addToFavorites(state, product) {
@@ -38,7 +38,7 @@ const mutations = {
     },
     total(state) {
       state.total = Object.values(this.state.cart).reduce(
-        (accumulator, value) => accumulator + value.price,
+        (accumulator, value) => Math.round(accumulator + value.price),
         0
       )
     },
@@ -132,6 +132,9 @@ const mutations = {
       ? JSON.parse(window.localStorage.getItem('user'))
       : [], //user ? JSON.parse(user) : {},
     counter: null,
+    //users: users ? JSON.parse(users) : [],
+    //user: user ? JSON.parse(user) : {},
+    // counter: null,
     quantity: 1
   }
 
