@@ -1,3 +1,5 @@
+import FashonArticles from '../components/FashonArticles.vue';
+
 <style scoped>
   .home-pictures img {
     width: 100%;
@@ -35,5 +37,6 @@
         src="/assets/watch-new-logga-brown.jpg"
       />
     </RouterLink>
+    <FashonArticles />
   </div>
 </template>

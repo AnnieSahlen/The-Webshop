@@ -47,25 +47,30 @@
           />
         </div>
 
-        <button
-          class="btn btn-secondary"
-          @click="
-            this.$store.commit('createUser', {
-              name: name,
-              user_name: u_name,
-              email: email,
-              password: password
-            })
-          "
+        <router-link to="/login"
+          ><button
+            class="btn btn-primary"
+            @click="
+              this.$store.commit('createUser', {
+                name: name,
+                user_name: u_name,
+                email: email,
+                password: password
+              })
+            "
+          >
+            Create Account
+          </button></router-link
         >
-          Create Account
-        </button>
       </div>
     </div>
   </div>
-  <br />
 </template>
 
 <script>
-  export default {}
+  export default {
+    data() {
+      return { password: '', email: '', name: '', u_name: '' }
+    }
+  }
 </script>

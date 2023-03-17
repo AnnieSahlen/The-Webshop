@@ -13,13 +13,27 @@
   input[type-radio] {
     margin: 50px;
   }
+  .bi-heart {
+    color: black;
+  }
+  .bi-heart-active {
+    color: red;
+  }
 </style>
 
 <script>
-  // import { mapState } from 'vuex'
-
   export default {
     created() {
+      //if(produkt finns i vuex favoriter)
+      // this.favoriteActive = true;
+      // console.log(this.favoriteActive)
+      this.$store.state.favorites.find((element) => {
+        // console.log(element.id + ' ' + this.productId)
+        if (element.id === this.productId) {
+          this.favoriteActive = true
+        }
+      })
+
       this.$watch(
         () => this.$store.state.value,
         () => {
@@ -31,7 +45,8 @@
 
     data() {
       return {
-        counter: 1
+        counter: 1,
+        favoriteActive: false
       }
     },
 
@@ -45,7 +60,6 @@
           console.log(value)
         }
       }
-      // ...mapState(['favorites'])
     },
     emits: ['update-size'],
     methods: {
@@ -57,10 +71,6 @@
 
         this.counter = payload
       }
-      // addToFavorites(item) {
-      //   this.$store.commit('toggleFavorite', item),
-      //     console.log('Added to favorites!')
-      // }
     },
     props: {
       title: {
@@ -160,11 +170,11 @@
                   L
                 </label>
               </div>
-              <!-- Test quantity section -->
+              <!-- Quantity section -->
               <div class="col-4">
                 <QuantitySection @submit-qty="uppdateCounter" />
               </div>
-              <!-- end of Test quantity section -->
+
               <!-- Add to chart button -->
               <button
                 type="button"
@@ -189,10 +199,57 @@
             <div>{{}}</div>
 
             <!--Add to Favorites-button-->
-            <button
+            <!-- <i
+              @click="
+                this.$store.commit('addToFavorites', {
+                  title: this.title,
+                  price: this.price,
+                  image: this.image,
+                  size: this.size
+                }),
+                  (favoriteActive = !favoriteActive)
+              "
+              class="bi bi-heart"
+              :class="{ 'bi-heart-active': favoriteActive }"
+              style="font-size: 1.3rem"
+            /> -->
+
+            <!--Experiment buttons-->
+            <i
+              v-if="!favoriteActive"
+              @click="
+                this.$store.commit('addToFavorites', {
+                  id: this.productId,
+                  title: this.title,
+                  price: this.price,
+                  image: this.image,
+                  size: this.size
+                }),
+                  (favoriteActive = !favoriteActive)
+              "
+              class="bi bi-heart"
+              style="font-size: 1.3rem; color: black"
+            />
+            <i
+              v-if="favoriteActive"
+              @click="
+                this.$store.commit('removeItemFromFavorites', {
+                  id: this.productId,
+                  title: this.title,
+                  price: this.price,
+                  image: this.image,
+                  size: this.size
+                }),
+                  (favoriteActive = !favoriteActive)
+              "
+              class="bi bi-heart"
+              style="font-size: 1.3rem; color: red"
+            />
+
+            <!-- <button
               type="button"
               class="btn btn-primary"
-              data-bs-toggle="modall"
+              data-bs-toggle="modal"
               @click="
                 this.$store.commit('addToFavorites', {
                   title: this.title,
@@ -203,7 +260,7 @@
               "
             >
               Add to Favorites
-            </button>
+            </button> -->
             <!-- </div>  -->
 
             <!-- @click="this.$store.commit('addToFavorites(item)')" -->

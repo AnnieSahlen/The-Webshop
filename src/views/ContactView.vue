@@ -7,10 +7,8 @@
           <p class="card-text">
             If you want help with our order don't hesitate to contact us.
           </p>
-          <a
-            href="#"
-            class="btn btn-outline-secondary"
-            style="background-color: #e9dbbc"
+
+          <a href="#" class="btn btn-primary" style="background-color: #e9dbbc"
             >Visit support page</a
           >
         </div>
@@ -23,7 +21,7 @@
           <p class="card-text">
             Do you want to work with us? Send us your resume.
           </p>
-          <a href="#" class="btn btn-outline-secondary">Visit career page</a>
+          <a href="#" class="btn btn-primary">Visit career page</a>
         </div>
       </div>
     </div>
@@ -39,5 +37,6 @@
     text-align: center;
     padding-left: 5.5rem;
     padding-bottom: 2rem;
+    padding-top: 5rem;
   }
 </style>
