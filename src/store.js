@@ -34,7 +34,12 @@ const mutations = {
       state.size = size
     },
     removeItemFromCart(state, product) {
-      state.cart.splice(product.index, 1)
+      if (state.cart[product.index].counter > 1) {
+        console.log(state.cart[product.index].counter)
+        state.cart[product.index].counter--
+      } else {
+        state.cart.splice(product.index, 1)
+      }
     },
     total(state) {
       state.total = Object.values(this.state.cart).reduce(
@@ -124,9 +129,8 @@ const mutations = {
     mail: '',
     favorites: [],
     users: users ? JSON.parse(users) : [],
-    user: user ? JSON.parse(user) : {},
-    counter: null,
-    quantity: 1
+    user: user ? JSON.parse(user) : {}
+    // counter: null
   }
 
 //Det som händer ovanför med users är typ en if-sats. Om den hittar users från localstorage så sätts users(state)

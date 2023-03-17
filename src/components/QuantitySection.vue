@@ -6,7 +6,12 @@
         // quntity: 1
       }
     },
+    emits: ['submit-qty'],
     methods: {
+      submitQuantity() {
+        console.log('a: ' + this.counter)
+        this.$emit('submit-qty', this.counter)
+      },
       changeCounter: function (number) {
         this.counter += +number
         console.log(this.counter)
@@ -39,6 +44,17 @@
       -
     </button>
     <input class="quantity" type="text" :value="counter" />
-    <button class="btn-plus" type="text" @click="changeCounter('1')">+</button>
+    <button
+      class="btn-plus"
+      type="text"
+      @click="
+        (event) => {
+          changeCounter('1')
+          submitQuantity()
+        }
+      "
+    >
+      +
+    </button>
   </div>
 </template>

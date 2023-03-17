@@ -35,7 +35,7 @@
                 <img style="height: 50px" :src="product.image" alt="" />
               </div>
               <!-- insert amout here for desktop /Flutra -->
-              <div class="col-1">x st{{ product.quantity }}</div>
+              <div class="col-1">x st{{ product.counter }}</div>
               <div class="col-1">{{ product.size }}</div>
               <div class="col-5">{{ product.title }}</div>
               <div class="col-1">
@@ -43,7 +43,7 @@
               </div>
               <div class="col-sm-1 col-lg-1">
                 <button
-                  class="btn btn-danger btn-sm"
+                  class="btn btn-primary btn-sm"
                   @click="
                     this.$store.commit('removeItemFromCart', {
                       title: product.title,
@@ -57,7 +57,7 @@
                   <!-- Remove -->
                 </button>
                 <!-- insert amout here for desktop /Flutra -->
-                <div class="col-1">x st{{ product.quantity }}</div>
+                <div class="col-1">x st{{ product.counter }}</div>
               </div>
             </div>
           </li>
@@ -70,7 +70,7 @@
         <routerLink to="/#">
           <button
             type="button"
-            class="btn btn-success"
+            class="btn btn-primary"
             style="margin: 30px, display: flex;"
           >
             To products

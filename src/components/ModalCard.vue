@@ -29,11 +29,11 @@
       )
     },
 
-    // data() {
-    //   // return {
-    //   //   value: ''
-    //   // }
-    // },
+    data() {
+      return {
+        counter: 1
+      }
+    },
 
     computed: {
       size: {
@@ -51,6 +51,11 @@
     methods: {
       onUpdateSize() {
         this.$store.commit('setSize', this.value)
+      },
+      uppdateCounter(payload) {
+        console.log('b ' + payload)
+
+        this.counter = payload
       }
       // addToFavorites(item) {
       //   this.$store.commit('toggleFavorite', item),
@@ -76,10 +81,6 @@
       },
       image: {
         type: String,
-        required: true
-      },
-      counter: {
-        type: Number,
         required: true
       }
     }
@@ -158,12 +159,11 @@
                 <label class="form-check-label" for="flexRadioDefault1">
                   L
                 </label>
-                <div>
-                  <h6>{{ $store.state.size }}</h6>
-                </div>
               </div>
               <!-- Test quantity section -->
-              <div class="col-4"><QuantitySection /></div>
+              <div class="col-4">
+                <QuantitySection @submit-qty="uppdateCounter" />
+              </div>
               <!-- end of Test quantity section -->
               <!-- Add to chart button -->
               <button
@@ -177,7 +177,6 @@
                     image: this.image,
                     size: this.size,
                     counter: this.counter
-                    // quantity: 1
                   })
                 "
                 :disabled="$store.state.size === undefined"
