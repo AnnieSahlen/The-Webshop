@@ -35,6 +35,7 @@
   .quantity {
     width: 30px;
     text-align: center;
+    margin-bottom: 10px;
   }
 </style>
 
